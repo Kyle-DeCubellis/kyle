@@ -15,6 +15,7 @@ const projects = [
     tags: ["Brand Identity", "Gallery", "Booking"],
     gradient: "linear-gradient(135deg, #6b7c5c 0%, #2a1a0e 100%)",
     image: "home-by-nkm-mockup.jpg",
+    video: "/videos/nkm-loop.mp4",
     link: "https://home-by-nkm.vercel.app/",
   },
   {
@@ -113,16 +114,28 @@ export default function PastWork() {
               transition={{ duration: 0.55, ease: EASE, delay: 0.07 * i }}
               whileHover={{ y: -4, transition: { duration: 0.2, ease: "easeOut" } }}
             >
-              {/* Image / Color bleed header */}
+              {/* Image or Video header */}
               <div
                 className="h-44 relative overflow-hidden"
                 style={{ background: proj.gradient }}
               >
-                <img
-                  data-src={`/${proj.image}`}
-                  alt={`${proj.title} mockup`}
-                  className="absolute inset-0 w-full h-full object-cover opacity-0"
-                />
+                {proj.video ? (
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                  >
+                    <source src={proj.video} type="video/mp4" />
+                  </video>
+                ) : (
+                  <img
+                    data-src={`/${proj.image}`}
+                    alt={`${proj.title} mockup`}
+                    className="absolute inset-0 w-full h-full object-cover opacity-0"
+                  />
+                )}
                 <div className="absolute inset-0 opacity-20 bg-gradient-to-b from-transparent to-charcoal" />
               </div>
 
