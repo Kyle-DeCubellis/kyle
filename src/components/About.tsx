@@ -1,5 +1,10 @@
 "use client";
 
+import { motion } from "framer-motion";
+
+const EASE = [0.22, 1, 0.36, 1] as const;
+const VIEWPORT = { once: true, margin: "-80px" } as const;
+
 const credentials = [
   { label: "Bose Corporation", detail: "8 Years", color: "border-amber/40 text-amber" },
   { label: "Mechanical Engineering", detail: "Northeastern, Cum Laude", color: "border-sage/40 text-sage" },
@@ -15,19 +20,29 @@ export default function About() {
       id="about"
       className="relative py-24 md:py-32 bg-ivory overflow-hidden"
     >
-      {/* Decorative large letter */}
-      <div
+      {/* Decorative large letter — fades in slowly on its own */}
+      <motion.div
         className="absolute right-0 top-0 text-[20rem] font-black text-fog leading-none select-none pointer-events-none hidden lg:block"
         style={{ fontFamily: "var(--font-display)", transform: "translate(10%, -10%)" }}
         aria-hidden
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={VIEWPORT}
+        transition={{ duration: 1.4, ease: "easeOut" }}
       >
         K
-      </div>
+      </motion.div>
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Text column */}
-          <div>
+
+          {/* Left column — slides in from left */}
+          <motion.div
+            initial={{ opacity: 0, x: -32 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={VIEWPORT}
+            transition={{ duration: 0.65, ease: EASE }}
+          >
             <span
               className="text-amber text-sm font-medium tracking-widest uppercase"
               style={{ fontFamily: "var(--font-body)" }}
@@ -35,20 +50,33 @@ export default function About() {
               About Kyle
             </span>
 
-            <h2
+            {/* Headline — lines stagger */}
+            <div
               className="mt-4 text-4xl md:text-5xl font-bold text-charcoal leading-tight"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              Engineer.
-              <br />
-              Builder.
-              <br />
-              <em className="text-amber">Connector of dots.</em>
-            </h2>
+              {["Engineer.", "Builder.", <><em className="text-amber">Connector of dots.</em></>].map(
+                (line, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 18 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={VIEWPORT}
+                    transition={{ duration: 0.5, ease: EASE, delay: 0.1 * i }}
+                  >
+                    {line}
+                  </motion.div>
+                )
+              )}
+            </div>
 
-            <div
+            <motion.div
               className="mt-8 space-y-4 text-walnut/75 text-base leading-relaxed"
               style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={VIEWPORT}
+              transition={{ duration: 0.6, ease: EASE, delay: 0.25 }}
             >
               <p>
                 I spent 8 years at Bose — from co-op student building StayHear tips
@@ -69,9 +97,15 @@ export default function About() {
                 do — to have the same quality online presence that big companies take
                 for granted. So I build it for them.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="mt-8 flex flex-wrap gap-3">
+            <motion.div
+              className="mt-8 flex flex-wrap gap-3"
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={VIEWPORT}
+              transition={{ duration: 0.5, ease: EASE, delay: 0.35 }}
+            >
               <a
                 href="https://www.linkedin.com/in/kyledecubellis"
                 target="_blank"
@@ -88,11 +122,16 @@ export default function About() {
               >
                 Email me directly
               </a>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          {/* Credentials column */}
-          <div>
+          {/* Right column — slides in from right */}
+          <motion.div
+            initial={{ opacity: 0, x: 32 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={VIEWPORT}
+            transition={{ duration: 0.65, ease: EASE, delay: 0.1 }}
+          >
             <p
               className="text-walnut/40 text-xs font-medium tracking-widest uppercase mb-6"
               style={{ fontFamily: "var(--font-body)" }}
@@ -101,10 +140,14 @@ export default function About() {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {credentials.map((cred) => (
-                <div
+              {credentials.map((cred, i) => (
+                <motion.div
                   key={cred.label}
                   className={`rounded-2xl border p-4 hover:bg-fog/50 transition-colors duration-200 ${cred.color}`}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={VIEWPORT}
+                  transition={{ duration: 0.45, ease: EASE, delay: 0.15 + 0.07 * i }}
                 >
                   <p
                     className="font-semibold text-sm"
@@ -118,13 +161,17 @@ export default function About() {
                   >
                     {cred.detail}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
 
             {/* Patent callout */}
-            <div
+            <motion.div
               className="mt-6 rounded-2xl p-5 border border-amber/20 bg-amber/5"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={VIEWPORT}
+              transition={{ duration: 0.55, ease: EASE, delay: 0.55 }}
             >
               <p
                 className="text-amber text-xs font-semibold tracking-widest uppercase mb-2"
@@ -140,8 +187,9 @@ export default function About() {
                 <li>· Active Noise Reduction Earphone</li>
                 <li>· Integration of Sensors into Earphones</li>
               </ul>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
+
         </div>
       </div>
     </section>

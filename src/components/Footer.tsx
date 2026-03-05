@@ -1,6 +1,10 @@
 "use client";
 
 import { Mail, Linkedin } from "lucide-react";
+import { motion } from "framer-motion";
+
+const EASE = [0.22, 1, 0.36, 1] as const;
+const VIEWPORT = { once: true, margin: "-40px" } as const;
 
 const footerLinks = [
   { label: "Services", href: "#services" },
@@ -14,7 +18,13 @@ export default function Footer() {
     <footer className="bg-charcoal text-ivory py-16 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Top row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-ivory/10">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-10 border-b border-ivory/10"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={VIEWPORT}
+          transition={{ duration: 0.6, ease: EASE }}
+        >
           {/* Brand */}
           <div>
             <h3
@@ -83,8 +93,6 @@ export default function Footer() {
                 linkedin.com/in/kyledecubellis
               </a>
             </div>
-
-            {/* Location */}
             <p
               className="mt-5 text-ivory/30 text-xs"
               style={{ fontFamily: "var(--font-body)" }}
@@ -92,10 +100,16 @@ export default function Footer() {
               📍 Greater Boston · Remote-friendly
             </p>
           </div>
-        </div>
+        </motion.div>
 
         {/* Bottom row */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <motion.div
+          className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={VIEWPORT}
+          transition={{ duration: 0.6, ease: EASE, delay: 0.2 }}
+        >
           <p
             className="text-ivory/25 text-xs"
             style={{ fontFamily: "var(--font-body)" }}
@@ -108,7 +122,7 @@ export default function Footer() {
           >
             Built with care. For the people who deserve it.
           </p>
-        </div>
+        </motion.div>
       </div>
     </footer>
   );

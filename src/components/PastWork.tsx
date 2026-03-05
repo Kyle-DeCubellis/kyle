@@ -1,6 +1,10 @@
 "use client";
 
 import { ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
+
+const EASE = [0.22, 1, 0.36, 1] as const;
+const VIEWPORT = { once: true, margin: "-80px" } as const;
 
 const projects = [
   {
@@ -61,41 +65,68 @@ export default function PastWork() {
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
         <div className="mb-16 max-w-2xl">
-          <span
+          <motion.span
             className="text-amber text-sm font-medium tracking-widest uppercase"
             style={{ fontFamily: "var(--font-body)" }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={VIEWPORT}
+            transition={{ duration: 0.5, ease: EASE }}
           >
             Past Work
-          </span>
-          <h2
+          </motion.span>
+
+          <motion.h2
             className="mt-4 text-4xl md:text-5xl lg:text-6xl font-bold text-charcoal leading-tight"
             style={{ fontFamily: "var(--font-display)" }}
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={VIEWPORT}
+            transition={{ duration: 0.6, ease: EASE, delay: 0.08 }}
           >
             Real work.
             <br />
             <em>Real results.</em>
-          </h2>
-          <p
+          </motion.h2>
+
+          <motion.p
             className="mt-5 text-walnut/70 text-lg leading-relaxed"
             style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={VIEWPORT}
+            transition={{ duration: 0.55, ease: EASE, delay: 0.16 }}
           >
             A sample of what I&apos;ve built — from local trades to major consumer brands.
-          </p>
+          </motion.p>
         </div>
 
         {/* Projects grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((proj) => (
-            <div
+          {projects.map((proj, i) => (
+            <motion.div
               key={proj.title}
-              className="group rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 bg-ivory border border-fog"
+              className="group rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 bg-ivory border border-fog"
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={VIEWPORT}
+              transition={{ duration: 0.55, ease: EASE, delay: 0.07 * i }}
+              whileHover={{ y: -4, transition: { duration: 0.2, ease: "easeOut" } }}
             >
               {/* Color bleed header */}
               <div
                 className="h-36 flex items-center justify-center relative overflow-hidden"
                 style={{ background: proj.gradient }}
               >
-                <span className="text-5xl relative z-10">{proj.emoji}</span>
+                <motion.span
+                  className="text-5xl relative z-10"
+                  initial={{ scale: 0.5, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={VIEWPORT}
+                  transition={{ duration: 0.45, ease: EASE, delay: 0.07 * i + 0.15 }}
+                >
+                  {proj.emoji}
+                </motion.span>
                 <div className="absolute inset-0 opacity-20 bg-gradient-to-b from-transparent to-charcoal" />
               </div>
 
@@ -136,7 +167,6 @@ export default function PastWork() {
                   {proj.description}
                 </p>
 
-                {/* Tags */}
                 <div className="flex flex-wrap gap-2">
                   {proj.tags.map((tag) => (
                     <span
@@ -149,11 +179,17 @@ export default function PastWork() {
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
 
           {/* "More on the way" card */}
-          <div className="rounded-3xl border-2 border-dashed border-fog flex items-center justify-center p-8 text-center min-h-48">
+          <motion.div
+            className="rounded-3xl border-2 border-dashed border-fog flex items-center justify-center p-8 text-center min-h-48"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={VIEWPORT}
+            transition={{ duration: 0.7, ease: EASE, delay: 0.35 }}
+          >
             <div>
               <p
                 className="text-walnut/30 text-4xl mb-3"
@@ -170,7 +206,7 @@ export default function PastWork() {
                 Yours could be next.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
