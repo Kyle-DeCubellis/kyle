@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Kyle DeCubellis — Product, Strategy & Digital",
+  title: "Kyle DeCubellis — Websites, AI Tools & Strategy for Real Businesses",
   description:
-    "Product leader and builder helping businesses and individuals create a powerful online presence — from elegant websites to AI-powered workflows.",
+    "I build elegant websites, set up AI tools that save you time, and help real businesses compete online. Greater Boston and beyond.",
   keywords: [
     "product strategy",
     "website design",
@@ -13,6 +13,16 @@ export const metadata: Metadata = {
     "Kyle DeCubellis",
     "Boston",
   ],
+  openGraph: {
+    title: "Kyle DeCubellis — Websites, AI Tools & Strategy for Real Businesses",
+    description:
+      "I build elegant websites, set up AI tools that save you time, and help real businesses compete online. Greater Boston and beyond.",
+    images: [{ url: "/og-image.jpg" }],
+    url: "https://kyle-psi.vercel.app",
+  },
+  alternates: {
+    canonical: "https://kyle-psi.vercel.app",
+  },
 };
 
 export default function RootLayout({

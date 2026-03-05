@@ -19,6 +19,7 @@ const services = [
     icon: Globe,
     title: "Websites That Work",
     tagline: "Your corner of the internet, done right.",
+    price: "Starting at $500",
     description:
       "From a simple, beautiful landing page to a full business site with booking, payments, and SEO — built to impress from day one and grow with you.",
     cta: "Perfect for: HVAC, real estate, restaurants, freelancers, anyone who wants to show up online.",
@@ -28,6 +29,7 @@ const services = [
     icon: Cpu,
     title: "AI Tools for Your Business",
     tagline: "Stop doing by hand what your laptop can do for you.",
+    price: "Starting at $750",
     description:
       "I identify the 2–3 places AI can genuinely save you hours every week — then set it up, train you on it, and make sure it actually sticks.",
     cta: "Perfect for: Anyone overwhelmed by admin, emails, quotes, or customer follow-up.",
@@ -37,6 +39,7 @@ const services = [
     icon: TrendingUp,
     title: "Growth & Strategy",
     tagline: "The playbook big companies use, built for your scale.",
+    price: "Starting at $1,500",
     description:
       "Pricing strategy, launch planning, finding new revenue — I bring 15+ years of product leadership to your business without the agency price tag.",
     cta: "Perfect for: Early-stage founders, career pivots, solopreneurs leveling up.",
@@ -46,6 +49,7 @@ const services = [
     icon: Layers,
     title: "Full-Stack Builds",
     tagline: "If you need it to actually work, not just look good.",
+    price: "Starting at $2,500",
     description:
       "Backend logic, databases, integrations, dashboards, APIs — whatever it takes to make your idea real and scalable. I do the full stack.",
     cta: "Perfect for: SaaS ideas, internal tools, automations, anything more than a brochure site.",
@@ -133,10 +137,17 @@ export default function Services() {
                   </h3>
 
                   <p
-                    className="text-ivory/70 text-sm font-medium italic mb-4"
+                    className="text-ivory/70 text-sm font-medium italic mb-2"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
                     {svc.tagline}
+                  </p>
+
+                  <p
+                    className="text-amber-light text-sm font-semibold mb-4"
+                    style={{ fontFamily: "var(--font-body)" }}
+                  >
+                    {svc.price}
                   </p>
 
                   <p
@@ -168,10 +179,16 @@ export default function Services() {
           custom={0.1}
         >
           <p
-            className="text-walnut/60 text-base mb-4"
+            className="text-walnut/60 text-base mb-2"
             style={{ fontFamily: "var(--font-body)" }}
           >
             Not sure which one fits? That&apos;s what the intro call is for.
+          </p>
+          <p
+            className="text-walnut/40 text-xs mb-4"
+            style={{ fontFamily: "var(--font-body)" }}
+          >
+            Exact scope determines final price. Intro call is always free.
           </p>
           <a
             href="#contact"

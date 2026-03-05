@@ -282,6 +282,19 @@ export default function Hero() {
             background: "#0a0805",
           }}
         >
+          {/* Background video/image — sits behind terminal text */}
+          <video
+            id="hero-visual"
+            src="/hero-video.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          {/* Dark overlay so terminal text remains legible */}
+          <div className="absolute inset-0 bg-black/75" />
+
           {/* Subtle scanline overlay */}
           <div
             className="absolute inset-0 pointer-events-none z-10"

@@ -122,6 +122,15 @@ export default function Footer() {
           >
             Built with care. For the people who deserve it.
           </p>
+          <a
+            href="https://kyle-psi.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-ivory/25 hover:text-ivory/40 transition-colors duration-200"
+            style={{ fontFamily: "var(--font-body)", fontSize: "0.75rem", opacity: 0.6 }}
+          >
+            Site by Kyle DeCubellis
+          </a>
         </motion.div>
       </div>
     </footer>
