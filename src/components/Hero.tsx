@@ -16,7 +16,21 @@ const C = {
   command: "#F0C060",     // brighter white-amber for command text
   output:  "#C4882A",     // softer amber for output
   check:   "#4EC94E",     // green checkmark
+  flag:    "#6CB6FF",     // soft blue for --flags
+  path:    "#F0B840",     // slightly brighter amber for ./paths
 } as const;
+
+function highlightCommand(cmd: string) {
+  return cmd.split(/(\s+)/).map((token, i) => {
+    if (token.startsWith("--")) {
+      return <span key={i} style={{ color: C.flag }}>{token}</span>;
+    }
+    if (token.startsWith("./")) {
+      return <span key={i} style={{ color: C.path }}>{token}</span>;
+    }
+    return <span key={i}>{token}</span>;
+  });
+}
 
 // ─── Terminal sequence ───────────────────────────────────────────────────────
 
@@ -82,7 +96,7 @@ function TerminalLine({
       {line.type === "prompt" && (
         <span>
           <span style={{ color: C.prompt }} className="select-none">{line.prompt}</span>
-          <span style={{ color: C.command }}>{line.command}</span>
+          <span style={{ color: C.command }}>{highlightCommand(line.command!)}</span>
         </span>
       )}
       {line.type === "output" && (
@@ -130,13 +144,7 @@ function Terminal() {
     <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-24 py-24">
       {/* Terminal window */}
       <div
-        className="max-w-2xl w-full overflow-hidden"
-        style={{
-          borderRadius: "12px",
-          border: "1px solid rgba(255,255,255,0.06)",
-          boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
-          background: "#0d1117",
-        }}
+        className="max-w-2xl w-full"
       >
         {/* Traffic light buttons with padding */}
         <div className="flex items-center gap-2 px-5 pt-4 pb-3 opacity-40">
