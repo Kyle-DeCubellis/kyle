@@ -170,6 +170,24 @@ export default function IntakeForm() {
                   No forms that go nowhere. No sales call required. Just tell me
                   what&apos;s on your mind and I&apos;ll come back with something useful.
                 </motion.p>
+
+                <motion.p
+                  className="mt-4 text-ivory/30 text-xs"
+                  style={{ fontFamily: "var(--font-body)" }}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={VIEWPORT}
+                  transition={{ duration: 0.5, ease: EASE, delay: 0.24 }}
+                >
+                  Or{" "}
+                  <a
+                    href="#"
+                    onClick={openCalendly}
+                    className="text-amber/60 hover:text-amber underline transition-colors duration-200"
+                  >
+                    skip ahead and book a call
+                  </a>
+                </motion.p>
               </div>
 
               {/* Form fields */}
@@ -360,19 +378,6 @@ export default function IntakeForm() {
                   >
                     This opens your email client pre-filled and ready to send.
                     I respond personally within 48 hours.
-                  </p>
-                  <p
-                    className="mt-6 text-ivory/30 text-xs text-center"
-                    style={{ fontFamily: "var(--font-body)" }}
-                  >
-                    Or{" "}
-                    <a
-                      href="#"
-                      onClick={openCalendly}
-                      className="text-amber/60 hover:text-amber underline transition-colors duration-200"
-                    >
-                      skip ahead and book a call
-                    </a>
                   </p>
                 </motion.div>
               </form>
