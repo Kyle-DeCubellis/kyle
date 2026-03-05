@@ -130,11 +130,12 @@ function Terminal() {
     <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-24 py-24">
       {/* Terminal window */}
       <div
-        className="max-w-2xl w-full rounded-xl overflow-hidden"
+        className="max-w-2xl w-full overflow-hidden"
         style={{
+          borderRadius: "12px",
           border: "1px solid rgba(255,255,255,0.06)",
-          boxShadow: "inset 0 1px 30px rgba(193,122,46,0.04), 0 0 60px rgba(0,0,0,0.3)",
-          background: "rgba(10,8,5,0.85)",
+          boxShadow: "0 8px 32px rgba(0,0,0,0.4)",
+          background: "#0d1117",
         }}
       >
         {/* Traffic light buttons with padding */}
