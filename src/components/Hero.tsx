@@ -9,29 +9,53 @@ import {
 } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
+// ─── Terminal colors ─────────────────────────────────────────────────────────
+
+const C = {
+  prompt:  "#E8A020",     // bright amber for $
+  command: "#F0C060",     // brighter white-amber for command text
+  output:  "#C4882A",     // softer amber for output
+  check:   "#4EC94E",     // green checkmark
+} as const;
+
 // ─── Terminal sequence ───────────────────────────────────────────────────────
 
-const LINES: { prompt?: string; text: string; output?: string; delay: number }[] = [
-  { prompt: "$ ", text: "whoami",                                        delay: 300  },
-  { text: "kyle-decubellis",                                             delay: 700  },
-  { text: "",                                                            delay: 900  },
-  { prompt: "$ ", text: "cat ./background.log",                          delay: 1100 },
-  { text: "[2012] Bose Corporation — co-op → Lead Design Engineer",      delay: 1600 },
-  { text: "[2019] Product Lead — shipped Bose Frames globally",          delay: 2000 },
-  { text: "[2020] Technical PM — Hatch IoT connected devices",           delay: 2400 },
-  { text: "[2021] VP Product — DTC consumer hardware at scale",          delay: 2800 },
-  { text: "",                                                            delay: 3100 },
-  { prompt: "$ ", text: "ls ./credentials/",                             delay: 3300 },
-  { text: "3-patents/   iso-13485/   northeastern-ME/   mitx/",          delay: 3700 },
-  { text: "",                                                            delay: 3900 },
-  { prompt: "$ ", text: "ls ./services/",                                delay: 4100 },
-  { text: "websites/   ai-tools/   strategy/   full-stack/",            delay: 4500 },
-  { text: "",                                                            delay: 4700 },
-  { prompt: "$ ", text: "./launch --for=real-people --no-jargon",        delay: 4900 },
-  { text: "> compiling warmth.............. ✓",                          delay: 5500 },
-  { text: "> stripping tech-bro............. ✓",                         delay: 5900 },
-  { text: "> loading craft.................. ✓",                         delay: 6300 },
-  { text: "> ready.",                                                    delay: 6700 },
+type LineType = "prompt" | "output" | "spacer" | "launch";
+
+interface TermLine {
+  type: LineType;
+  prompt?: string;
+  command?: string;
+  text?: string;
+  delay: number;
+}
+
+const LINES: TermLine[] = [
+  // whoami block
+  { type: "prompt",  prompt: "$ ", command: "whoami",                         delay: 300  },
+  { type: "output",  text: "kyle-decubellis",                                delay: 700  },
+  { type: "spacer",                                                          delay: 900  },
+  // background.log block
+  { type: "prompt",  prompt: "$ ", command: "cat ./background.log",           delay: 1100 },
+  { type: "output",  text: "[2012]  Bose Corporation  —  co-op kid → lead engineer",       delay: 1600 },
+  { type: "output",  text: "[2019]  Bose Frames       —  napkin sketch → global product",  delay: 2000 },
+  { type: "output",  text: "[2020]  Hatch             —  1M+ connected devices shipped",   delay: 2400 },
+  { type: "output",  text: "[2021]  VP Product        —  built the whole thing, start to scale", delay: 2800 },
+  { type: "spacer",                                                          delay: 3100 },
+  // credentials block
+  { type: "prompt",  prompt: "$ ", command: "ls ./credentials/",              delay: 3300 },
+  { type: "output",  text: "patents/[10-granted-4-pending]/  northeastern-ME/  iso-13485/  mitx/", delay: 3700 },
+  { type: "spacer",                                                          delay: 3900 },
+  // services block
+  { type: "prompt",  prompt: "$ ", command: "ls ./services/",                 delay: 4100 },
+  { type: "output",  text: "websites/  ai-tools/  strategy/  full-stack/",   delay: 4500 },
+  { type: "spacer",                                                          delay: 4700 },
+  // launch block
+  { type: "prompt",  prompt: "$ ", command: "./launch --for=real-people --no-jargon", delay: 4900 },
+  { type: "launch",  text: "> compiling warmth.............. ✓",             delay: 5500 },
+  { type: "launch",  text: "> stripping tech-bro............. ✓",            delay: 5900 },
+  { type: "launch",  text: "> loading craft.................. ✓",            delay: 6300 },
+  { type: "launch",  text: "> ready. ▌",                                     delay: 6700 },
 ];
 
 function TerminalLine({
@@ -39,30 +63,54 @@ function TerminalLine({
   visible,
   isLast,
 }: {
-  line: (typeof LINES)[0];
+  line: TermLine;
   visible: boolean;
   isLast: boolean;
 }) {
-  const isOutput = !line.prompt && line.text !== "";
-  const isEmpty = line.text === "";
+  if (line.type === "spacer") return <div className="h-5" />;
 
-  if (isEmpty) return <div className="h-3" />;
+  const isReady = isLast && visible && line.text?.includes("▌");
 
   return (
     <motion.div
       initial={{ opacity: 0, x: -6 }}
       animate={visible ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.2, ease: "easeOut" }}
-      className={`flex items-start gap-1.5 font-mono text-sm leading-relaxed ${
-        isOutput ? "pl-4 text-amber/60" : "text-amber"
-      }`}
+      className="leading-relaxed text-[13px] md:text-sm"
+      style={{ fontFamily: "var(--font-mono)" }}
     >
-      {line.prompt && (
-        <span className="text-amber/40 select-none flex-shrink-0">{line.prompt}</span>
+      {line.type === "prompt" && (
+        <span>
+          <span style={{ color: C.prompt }} className="select-none">{line.prompt}</span>
+          <span style={{ color: C.command }}>{line.command}</span>
+        </span>
       )}
-      <span>{line.text}</span>
-      {isLast && visible && (
-        <span className="inline-block w-2 h-4 bg-amber ml-0.5 animate-pulse" />
+      {line.type === "output" && (
+        <span className="pl-4" style={{ color: C.output, whiteSpace: "pre" }}>{line.text}</span>
+      )}
+      {line.type === "launch" && (
+        <span className="pl-4" style={{ whiteSpace: "pre" }}>
+          {isReady ? (
+            <>
+              <span style={{ color: C.output }}>{"> ready. "}</span>
+              <span
+                style={{
+                  color: C.prompt,
+                  animation: "blink-cursor 1s step-end infinite",
+                }}
+              >
+                ▌
+              </span>
+            </>
+          ) : (
+            <>
+              <span style={{ color: C.output }}>
+                {line.text?.replace("✓", "")}
+              </span>
+              <span style={{ color: C.check }}>✓</span>
+            </>
+          )}
+        </span>
       )}
     </motion.div>
   );
@@ -72,49 +120,59 @@ function Terminal() {
   const [visibleCount, setVisibleCount] = useState(0);
 
   useEffect(() => {
-    LINES.forEach((line, i) => {
-      const t = setTimeout(() => {
-        setVisibleCount(i + 1);
-      }, line.delay);
-      return () => clearTimeout(t);
-    });
+    const timers = LINES.map((line, i) =>
+      setTimeout(() => setVisibleCount(i + 1), line.delay)
+    );
+    return () => timers.forEach(clearTimeout);
   }, []);
 
   return (
     <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-24 py-24">
-      {/* Window chrome */}
-      <div className="max-w-2xl w-full">
-        <div className="flex items-center gap-2 mb-4 opacity-40">
+      {/* Terminal window */}
+      <div
+        className="max-w-2xl w-full rounded-xl overflow-hidden"
+        style={{
+          border: "1px solid rgba(255,255,255,0.06)",
+          boxShadow: "inset 0 1px 30px rgba(193,122,46,0.04), 0 0 60px rgba(0,0,0,0.3)",
+          background: "rgba(10,8,5,0.85)",
+        }}
+      >
+        {/* Traffic light buttons with padding */}
+        <div className="flex items-center gap-2 px-5 pt-4 pb-3 opacity-40">
           <span className="w-3 h-3 rounded-full bg-red-400/70" />
           <span className="w-3 h-3 rounded-full bg-yellow-400/70" />
           <span className="w-3 h-3 rounded-full bg-green-400/70" />
           <span
-            className="ml-4 text-amber/30 text-xs font-mono tracking-widest"
+            className="ml-4 text-xs tracking-widest"
+            style={{ fontFamily: "var(--font-mono)", color: "rgba(193,122,46,0.3)" }}
           >
             kyle@local ~ zsh
           </span>
         </div>
 
         {/* Lines */}
-        <div className="space-y-0.5">
+        <div className="px-5 pb-6 space-y-0.5">
           {LINES.map((line, i) => (
             <TerminalLine
               key={i}
               line={line}
               visible={i < visibleCount}
-              isLast={i === visibleCount - 1}
+              isLast={i === LINES.length - 1}
             />
           ))}
         </div>
       </div>
 
-      {/* Scroll hint — only visible before scrolling */}
+      {/* Scroll hint */}
       <motion.div
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         animate={{ opacity: [0.3, 0.8, 0.3] }}
         transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
       >
-        <span className="font-mono text-amber/30 text-xs tracking-widest">
+        <span
+          className="text-xs tracking-widest"
+          style={{ fontFamily: "var(--font-mono)", color: "rgba(193,122,46,0.3)" }}
+        >
           scroll to ascend
         </span>
         <ArrowDown size={14} className="text-amber/30" />
