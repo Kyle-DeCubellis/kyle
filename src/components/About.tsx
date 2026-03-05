@@ -6,12 +6,12 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 const VIEWPORT = { once: true, margin: "-80px" } as const;
 
 const credentials = [
-  { label: "Bose Corporation", detail: "8 Years", color: "border-amber/40 text-amber" },
-  { label: "Mechanical Engineering", detail: "Northeastern, Cum Laude", color: "border-sage/40 text-sage" },
+  { label: "Bose Corporation", detail: "2M products · $2B+ revenue", color: "border-amber/40 text-amber" },
+  { label: "Northeastern University", detail: "Mechanical Engineering, Cum Laude", color: "border-sage/40 text-sage" },
   { label: "3 Patents", detail: "Earphone Design & ANC", color: "border-terracotta/40 text-terracotta" },
-  { label: "ISO 13485", detail: "Medical Device QMS", color: "border-walnut/30 text-walnut" },
-  { label: "IoT Hardware", detail: "Hatch Connected Devices", color: "border-amber/40 text-amber" },
-  { label: "MITx on edX", detail: "Continuing Education", color: "border-sage/40 text-sage" },
+  { label: "Hatch", detail: "Android, iOS, AWS IoT devices", color: "border-walnut/30 text-walnut" },
+  { label: "VP of Product", detail: "5M products · 4.4+ stars · $3B revenue", color: "border-amber/40 text-amber" },
+  { label: "DTC at Scale", detail: "Hardware, software, and systems", color: "border-sage/40 text-sage" },
 ];
 
 export default function About() {
@@ -79,16 +79,15 @@ export default function About() {
               transition={{ duration: 0.6, ease: EASE, delay: 0.25 }}
             >
               <p>
-                I spent 8 years at Bose — from co-op student building StayHear tips
-                to Product Lead shipping Bose Frames to millions of people worldwide.
-                I hold 3 patents. I know what it takes to go from a sketch on a napkin
-                to a product in someone&apos;s hands.
+                I spent 2012 to 2020 at Bose - starting as a co-op and finishing as Product
+                Lead on Bose Frames. Over 2 million units shipped, $2 billion in revenue touched,
+                and 3 patents filed. I know what it takes to get from a sketch to a product in
+                someone&apos;s hands at global scale.
               </p>
               <p>
-                After Bose I went into the startup world, leading IoT product development
-                for connected devices, then moved into senior product leadership for a
-                direct-to-consumer hardware brand — building data systems, AI workflows,
-                and multi-SKU roadmaps from scratch.
+                From there: Technical PM at Hatch, shipping Android, iOS, and AWS-connected IoT
+                devices. Then VP of Product at a DTC consumer hardware brand - 5 million products,
+                4.4+ star weighted average across the portfolio, $3 billion in revenue.
               </p>
               <p>
                 This side of my work is personal. I want the electrician, the personal
