@@ -154,9 +154,9 @@ export default function IntakeForm() {
                   viewport={VIEWPORT}
                   transition={{ duration: 0.6, ease: EASE, delay: 0.08 }}
                 >
-                  Tell me about
+                  Let&apos;s talk about where
                   <br />
-                  <em className="text-amber-light">your idea.</em>
+                  <em className="text-amber-light">you&apos;re trying to go.</em>
                 </motion.h2>
 
                 <motion.p
@@ -167,28 +167,58 @@ export default function IntakeForm() {
                   viewport={VIEWPORT}
                   transition={{ duration: 0.55, ease: EASE, delay: 0.16 }}
                 >
-                  No forms that go nowhere. No sales call required. Just tell me
-                  what&apos;s on your mind and I&apos;ll come back with something useful.
+                  No pitch decks. No discovery calls just to book another call.
+                  Tell me where you are and where you want to be - I&apos;ll come
+                  back with something real.
                 </motion.p>
 
-                <motion.p
-                  className="mt-4 text-ivory/30 text-xs"
-                  style={{ fontFamily: "var(--font-body)" }}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={VIEWPORT}
-                  transition={{ duration: 0.5, ease: EASE, delay: 0.24 }}
-                >
-                  Or{" "}
-                  <a
-                    href="#"
-                    onClick={openCalendly}
-                    className="text-amber/60 hover:text-amber underline transition-colors duration-200"
-                  >
-                    skip ahead and book a call
-                  </a>
-                </motion.p>
               </div>
+
+              {/* Two CTA options */}
+              <motion.div
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={VIEWPORT}
+                transition={{ duration: 0.5, ease: EASE, delay: 0.28 }}
+              >
+                <a
+                  href="#contact"
+                  onClick={() => setForm((prev) => ({ ...prev, service: "Website (landing page or full site)" }))}
+                  className="rounded-2xl border border-ivory/15 p-6 text-center hover:border-amber/40 transition-colors duration-200"
+                >
+                  <p
+                    className="text-ivory/50 text-xs font-medium tracking-wide uppercase mb-2"
+                    style={{ fontFamily: "var(--font-body)" }}
+                  >
+                    Ready to launch?
+                  </p>
+                  <p
+                    className="text-amber text-base font-semibold"
+                    style={{ fontFamily: "var(--font-body)" }}
+                  >
+                    Start a project →
+                  </p>
+                </a>
+                <a
+                  href="#"
+                  onClick={openCalendly}
+                  className="rounded-2xl border border-ivory/15 p-6 text-center hover:border-amber/40 transition-colors duration-200"
+                >
+                  <p
+                    className="text-ivory/50 text-xs font-medium tracking-wide uppercase mb-2"
+                    style={{ fontFamily: "var(--font-body)" }}
+                  >
+                    Already live but stuck?
+                  </p>
+                  <p
+                    className="text-amber text-base font-semibold"
+                    style={{ fontFamily: "var(--font-body)" }}
+                  >
+                    Book a growth audit →
+                  </p>
+                </a>
+              </motion.div>
 
               {/* Form fields */}
               <form onSubmit={handleSubmit} className="space-y-5">

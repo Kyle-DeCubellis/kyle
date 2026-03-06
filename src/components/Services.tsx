@@ -1,6 +1,6 @@
 "use client";
 
-import { Globe, Cpu, TrendingUp, Layers } from "lucide-react";
+import { Rocket, TrendingUp } from "lucide-react";
 import { motion } from "framer-motion";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -14,45 +14,25 @@ const fadeUp = {
   }),
 };
 
-const services = [
+const tracks = [
   {
-    icon: Globe,
-    title: "Websites That Work",
-    tagline: "Your corner of the internet, done right.",
+    icon: Rocket,
+    title: "Launch",
+    tagline: "Let's build it together.",
     price: "Starting at $500",
     description:
-      "From a simple, beautiful landing page to a full business site with booking, payments, and SEO - built to impress from day one and grow with you.",
-    cta: "Perfect for: HVAC, real estate, restaurants, freelancers, anyone who wants to show up online.",
+      "You're involved at every step - not just approving a final deliverable. Site, copy, deployment, domain, booking, payments. Everything live and yours. I don't hand off a file. I hand off a running business.",
+    cta: "Perfect for: Anyone ready to show up online the right way for the first time.",
     gradient: "linear-gradient(135deg, #c75a3a 0%, #a8402a 100%)",
   },
   {
-    icon: Cpu,
-    title: "AI Tools for Your Business",
-    tagline: "Stop doing by hand what your laptop can do for you.",
-    price: "Starting at $750",
-    description:
-      "I identify the 2–3 places AI can genuinely save you hours every week - then set it up, train you on it, and make sure it actually sticks.",
-    cta: "Perfect for: Anyone overwhelmed by admin, emails, quotes, or customer follow-up.",
-    gradient: "linear-gradient(135deg, #c17a2e 0%, #9d5e1a 100%)",
-  },
-  {
     icon: TrendingUp,
-    title: "Growth & Strategy",
-    tagline: "The playbook big companies use, built for your scale.",
-    price: "Starting at $1,500",
+    title: "Grow",
+    tagline: "I stay in your corner.",
+    price: "Starting at $150/mo",
     description:
-      "Pricing strategy, launch planning, finding new revenue - I bring 15+ years of product leadership to your business without the agency price tag.",
-    cta: "Perfect for: Early-stage founders, career pivots, solopreneurs leveling up.",
-    gradient: "linear-gradient(135deg, #3d2b1f 0%, #1a1208 100%)",
-  },
-  {
-    icon: Layers,
-    title: "Full-Stack Builds",
-    tagline: "If you need it to actually work, not just look good.",
-    price: "Starting at $2,500",
-    description:
-      "Backend logic, databases, integrations, dashboards, APIs - whatever it takes to make your idea real and scalable. I do the full stack.",
-    cta: "Perfect for: SaaS ideas, internal tools, automations, anything more than a brochure site.",
+      "After launch I stick around. Monthly maintenance, SEO, local search, content updates, AI tools as your business evolves. You focus on your work. I keep the digital side running and improving.",
+    cta: "Perfect for: Businesses that launched but aren't getting found, or just need someone to own the online side.",
     gradient: "linear-gradient(135deg, #6b7c5c 0%, #4a5940 100%)",
   },
 ];
@@ -100,20 +80,21 @@ export default function Services() {
             variants={fadeUp}
             custom={0.16}
           >
-            Whether you&apos;re starting from scratch, trying to grow, or just
-            need someone who gets it - I&apos;ve got you.
+            Most freelancers hand you a finished file and disappear. I build
+            with you - from the first conversation through launch and
+            everything that comes after.
           </motion.p>
         </div>
 
-        {/* Cards grid */}
+        {/* Two tracks */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {services.map((svc, i) => {
-            const Icon = svc.icon;
+          {tracks.map((track, i) => {
+            const Icon = track.icon;
             return (
               <motion.div
-                key={svc.title}
+                key={track.title}
                 className="group relative rounded-3xl p-8 md:p-10 overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl cursor-default"
-                style={{ background: svc.gradient }}
+                style={{ background: track.gradient }}
                 initial={{ opacity: 0, y: 36 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={VIEWPORT}
@@ -133,35 +114,35 @@ export default function Services() {
                     className="text-ivory text-2xl md:text-3xl font-bold mb-2"
                     style={{ fontFamily: "var(--font-display)" }}
                   >
-                    {svc.title}
+                    {track.title}
                   </h3>
 
                   <p
                     className="text-ivory/70 text-sm font-medium italic mb-2"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
-                    {svc.tagline}
+                    {track.tagline}
                   </p>
 
                   <p
                     className="text-amber-light text-sm font-semibold mb-4"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
-                    {svc.price}
+                    {track.price}
                   </p>
 
                   <p
                     className="text-ivory/80 text-base leading-relaxed mb-6"
                     style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
                   >
-                    {svc.description}
+                    {track.description}
                   </p>
 
                   <p
                     className="text-ivory/50 text-xs leading-relaxed border-t border-ivory/10 pt-4"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
-                    {svc.cta}
+                    {track.cta}
                   </p>
                 </div>
               </motion.div>
@@ -179,23 +160,17 @@ export default function Services() {
           custom={0.1}
         >
           <p
-            className="text-walnut/60 text-base mb-2"
+            className="text-walnut/60 text-base mb-4"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            Not sure which one fits? That&apos;s what the intro call is for.
-          </p>
-          <p
-            className="text-walnut/40 text-xs mb-4"
-            style={{ fontFamily: "var(--font-body)" }}
-          >
-            Exact scope determines final price. Intro call is always free.
+            Not sure which fits? That&apos;s exactly what the intro call is for.
           </p>
           <a
             href="#contact"
             className="inline-flex items-center gap-2 px-7 py-3.5 bg-charcoal text-ivory font-medium rounded-full hover:bg-walnut transition-colors duration-200"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            Let&apos;s figure it out together →
+            Let&apos;s figure it out →
           </a>
         </motion.div>
       </div>

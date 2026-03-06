@@ -88,23 +88,33 @@ export default function About() {
               transition={{ duration: 0.6, ease: EASE, delay: 0.25 }}
             >
               <p>
-                I spent 8 years at Bose - from co-op student building StayHear tips
-                to Product Lead shipping Bose Frames to millions of people worldwide.
-                I hold 3 patents. I know what it takes to go from a sketch on a napkin
-                to a product in someone&apos;s hands.
+                Good products don&apos;t start with features. They start with
+                understanding who you&apos;re building for - how they think,
+                what frustrates them, what makes them tell a friend.
               </p>
               <p>
-                After Bose I went into the startup world, leading IoT product development
-                for connected devices, then moved into senior product leadership for a
-                direct-to-consumer hardware brand - building data systems, AI workflows,
-                and multi-SKU roadmaps from scratch.
+                I&apos;ve spent my career at that intersection. Researching
+                users before a single line of code gets written. Mapping
+                the journey from first impression to loyal advocate.
+                Finding the moments where people either fall in love with
+                something - or quietly walk away.
               </p>
               <p>
-                This side of my work is personal. I want the electrician, the personal
-                trainer, the gig worker - people who are{" "}
-                <em className="text-charcoal font-medium">really good</em> at what they
-                do - to have the same quality online presence that big companies take
-                for granted. So I build it for them.
+                The businesses that win aren&apos;t always the ones with the
+                best product. They&apos;re the ones whose customers feel
+                understood - and that feeling starts long before someone
+                buys anything. It starts with how you show up online.
+                That&apos;s what I build for you.
+              </p>
+              <p>
+                I learned this building products used by millions. Now
+                I use it for businesses that are just getting started.
+              </p>
+              <p>
+                I don&apos;t hand things off. I build with you - from the
+                first conversation through launch and beyond. When your
+                business grows, your site should too. That&apos;s the whole
+                point.
               </p>
             </motion.div>
 

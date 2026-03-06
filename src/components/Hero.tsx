@@ -271,6 +271,13 @@ function HeroContent() {
           </a>
         </div>
 
+        <p
+          className="mt-6 text-ivory/35 text-xs"
+          style={{ fontFamily: "var(--font-body)" }}
+        >
+          Currently booking Spring 2026 projects - a small number of spots available.
+        </p>
+
       </div>
 
       {/* Bottom fade into next section */}

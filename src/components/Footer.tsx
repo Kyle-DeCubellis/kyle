@@ -120,7 +120,7 @@ export default function Footer() {
             className="text-ivory/20 text-xs italic"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Built with care. For the people who deserve it.
+            Launch. Grow. Stay found. For the people who deserve it.
           </p>
           <a
             href="https://kyle-psi.vercel.app"
