@@ -231,17 +231,6 @@ function HeroContent() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-center max-w-6xl mx-auto px-6 pt-20 pb-16">
-        {/* Eyebrow */}
-        <div className="mb-8 inline-flex items-center gap-3">
-          <span className="h-px w-12 bg-amber-light/70" />
-          <span
-            className="text-amber-light text-sm font-medium tracking-widest uppercase"
-            style={{ fontFamily: "var(--font-body)" }}
-          >
-            Greater Boston & Beyond
-          </span>
-        </div>
-
         {/* Headline */}
         <h1
           className="text-ivory text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-none tracking-tight max-w-4xl"
@@ -282,23 +271,6 @@ function HeroContent() {
           </a>
         </div>
 
-        {/* Trust chips */}
-        <div className="mt-12 flex flex-wrap items-center gap-3">
-          {[
-            "Bose Corporation",
-            "3 Patents",
-            "15+ Years in Product",
-            "ISO 13485 Certified",
-          ].map((chip) => (
-            <span
-              key={chip}
-              className="px-3.5 py-1.5 rounded-full border border-ivory/20 text-ivory/55 text-xs tracking-wide"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              {chip}
-            </span>
-          ))}
-        </div>
       </div>
 
       {/* Bottom fade into next section */}
