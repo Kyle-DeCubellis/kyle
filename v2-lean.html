@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kyle DeCubellis — Let's win together</title>
+  <meta name="description" content="Product thinker, web builder, and strategic partner for people who want to win. Greater Boston." />
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cobalt: #1A1AFF;
+      --black:  #0A0A0A;
+      --white:  #FFFFFF;
+      --muted:  #999999;
+      --rule:   #E0E0E0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── Nav ──────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 28px 48px;
+    }
+
+    .nav-monogram {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: var(--cobalt);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      font-size: 0.875rem;
+      font-weight: 300;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-links a {
+      color: var(--black);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--cobalt); }
+
+    @media (max-width: 600px) {
+      nav { padding: 20px 24px; }
+      .nav-links { gap: 20px; font-size: 0.8rem; }
+    }
+
+    /* ─── Hero ─────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 48px 80px;
+    }
+
+    .hero-headline {
+      font-size: clamp(4rem, 13vw, 13rem);
+      font-weight: 900;
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      color: var(--black);
+      margin-bottom: 52px;
+    }
+
+    .hero-headline .accent { color: var(--cobalt); }
+
+    .hero-sub {
+      font-size: clamp(1rem, 1.6vw, 1.25rem);
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--black);
+      max-width: 560px;
+      margin-bottom: 36px;
+    }
+
+    .hero-cta {
+      font-size: clamp(1rem, 1.4vw, 1.125rem);
+      font-weight: 400;
+      color: var(--cobalt);
+      letter-spacing: 0.01em;
+      transition: opacity 0.2s;
+      display: inline-block;
+    }
+
+    .hero-cta:hover { opacity: 0.65; }
+
+    @media (max-width: 600px) {
+      #hero { padding: 100px 24px 64px; }
+    }
+
+    /* ─── Shared Section Styles ────────────────────────────────── */
+    section {
+      padding: 120px 48px;
+      border-top: 1px solid var(--rule);
+    }
+
+    @media (max-width: 600px) {
+      section { padding: 72px 24px; }
+    }
+
+    .section-split {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .section-split { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    .section-num {
+      font-size: clamp(5rem, 10vw, 9rem);
+      font-weight: 300;
+      color: var(--cobalt);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .section-content h2 {
+      font-size: clamp(1.75rem, 3.5vw, 3rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+
+    .section-content p {
+      font-size: clamp(0.95rem, 1.3vw, 1.1rem);
+      font-weight: 300;
+      line-height: 1.9;
+      color: var(--black);
+      max-width: 620px;
+      margin-bottom: 20px;
+    }
+
+    /* ─── Origin Story ─────────────────────────────────────────── */
+    #origin {}
+
+    /* ─── What I Believe ───────────────────────────────────────── */
+    #belief {
+      text-align: center;
+    }
+
+    #belief .belief-headline {
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 300;
+      font-style: italic;
+      letter-spacing: -0.01em;
+      margin-bottom: 64px;
+      color: var(--black);
+    }
+
+    .belief-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      text-align: left;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 700px) {
+      .belief-cols { grid-template-columns: 1fr; gap: 40px; }
+    }
+
+    .belief-cols p {
+      font-size: clamp(0.95rem, 1.3vw, 1.05rem);
+      font-weight: 300;
+      line-height: 1.9;
+    }
+
+    /* ─── Services ─────────────────────────────────────────────── */
+    #services .services-header {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 64px;
+      align-items: start;
+      margin-bottom: 72px;
+    }
+
+    @media (max-width: 900px) {
+      #services .services-header { grid-template-columns: 1fr; gap: 24px; margin-bottom: 48px; }
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+
+    @media (max-width: 700px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+
+    .service-item {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .services-grid .service-item:nth-child(odd) {
+      padding-right: 48px;
+      border-right: 1px solid var(--rule);
+    }
+
+    .services-grid .service-item:nth-child(even) {
+      padding-left: 48px;
+    }
+
+    @media (max-width: 700px) {
+      .services-grid .service-item:nth-child(odd) {
+        padding-right: 0;
+        border-right: none;
+      }
+      .services-grid .service-item:nth-child(even) {
+        padding-left: 0;
+      }
+    }
+
+    .service-name {
+      font-size: 0.8rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .service-desc {
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--black);
+    }
+
+    /* ─── The Range ─────────────────────────────────────────────── */
+    #range .range-header {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 64px;
+      align-items: start;
+      margin-bottom: 64px;
+    }
+
+    @media (max-width: 900px) {
+      #range .range-header { grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
+    }
+
+    .range-subhead {
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      font-weight: 300;
+      font-style: italic;
+      margin-top: 12px;
+      color: var(--black);
+    }
+
+    /* Ticker */
+    .ticker-wrap {
+      overflow: hidden;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      padding: 20px 0;
+      white-space: nowrap;
+    }
+
+    .ticker-track {
+      display: inline-flex;
+      animation: ticker 36s linear infinite;
+      white-space: nowrap;
+    }
+
+    .ticker-track:hover { animation-play-state: paused; }
+
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      font-size: clamp(0.85rem, 1.2vw, 1rem);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      padding: 0 28px;
+    }
+
+    .ticker-item.cobalt { color: var(--cobalt); }
+
+    .ticker-sep {
+      display: inline-block;
+      width: 1px;
+      height: 1em;
+      background: var(--rule);
+      vertical-align: middle;
+      flex-shrink: 0;
+    }
+
+    /* ─── Portfolio ─────────────────────────────────────────────── */
+    #portfolio .portfolio-header {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 64px;
+      align-items: start;
+      margin-bottom: 56px;
+    }
+
+    @media (max-width: 900px) {
+      #portfolio .portfolio-header { grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
+    }
+
+    .portfolio-list { width: 100%; }
+
+    .portfolio-row {
+      display: grid;
+      grid-template-columns: 1fr 2fr auto;
+      align-items: baseline;
+      gap: 32px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+      transition: opacity 0.2s;
+    }
+
+    .portfolio-row:first-child { border-top: 1px solid var(--rule); }
+
+    .portfolio-row:hover { opacity: 0.6; }
+
+    .portfolio-name {
+      font-size: clamp(0.95rem, 1.4vw, 1.05rem);
+      font-weight: 900;
+      letter-spacing: -0.01em;
+    }
+
+    .portfolio-desc {
+      font-size: clamp(0.875rem, 1.2vw, 0.95rem);
+      font-weight: 300;
+      color: var(--black);
+      line-height: 1.5;
+    }
+
+    .portfolio-link {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--cobalt);
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+
+    .portfolio-link:hover { opacity: 0.65; }
+
+    @media (max-width: 700px) {
+      .portfolio-row {
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+        gap: 6px 16px;
+      }
+      .portfolio-desc {
+        grid-column: 1;
+        grid-row: 2;
+      }
+      .portfolio-link {
+        grid-column: 2;
+        grid-row: 1 / 3;
+        align-self: center;
+      }
+    }
+
+    /* ─── Contact ──────────────────────────────────────────────── */
+    #contact {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 48px;
+      border-top: 1px solid var(--rule);
+    }
+
+    .contact-num {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--cobalt);
+      letter-spacing: 0.08em;
+      margin-bottom: 40px;
+    }
+
+    .contact-headline {
+      font-size: clamp(4rem, 12vw, 11rem);
+      font-weight: 900;
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      color: var(--black);
+      margin-bottom: 52px;
+    }
+
+    .contact-headline .accent { color: var(--cobalt); }
+
+    .contact-sub {
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 520px;
+      margin-bottom: 36px;
+    }
+
+    .contact-email {
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 300;
+      color: var(--cobalt);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+      display: inline-block;
+      margin-bottom: 24px;
+    }
+
+    .contact-email:hover { border-bottom-color: var(--cobalt); }
+
+    .contact-location {
+      font-size: 0.875rem;
+      font-weight: 300;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    @media (max-width: 600px) {
+      #contact { padding: 80px 24px; }
+    }
+
+    /* ─── Footer ────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 20px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: var(--muted);
+    }
+
+    @media (max-width: 600px) {
+      footer { padding: 20px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Nav ──────────────────────────────────────────────────── -->
+  <nav>
+    <a href="#hero" class="nav-monogram">KD</a>
+    <div class="nav-links">
+      <a href="#portfolio">Work</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ─── Hero ─────────────────────────────────────────────────── -->
+  <section id="hero" style="border-top: none;">
+    <h1 class="hero-headline">
+      Built to<br>
+      help you<br>
+      <span class="accent">win.</span>
+    </h1>
+    <p class="hero-sub">From resume to revenue — whatever you need, whatever stage you're at.</p>
+    <a href="#contact" class="hero-cta">Let's talk →</a>
+  </section>
+
+  <!-- ─── Origin Story ─────────────────────────────────────────── -->
+  <section id="origin">
+    <div class="section-split">
+      <div class="section-num">01</div>
+      <div class="section-content">
+        <h2>This started with a favor.</h2>
+        <p>A friend needed a website. A family member needed help positioning themselves for a new job. I said yes — and somewhere in the process of applying what I'd spent 15 years building at companies like Bose, I realized this was the most fulfilling work I'd ever done.</p>
+        <p>Not because it was easy. Because it mattered to the person sitting across from me in a way that a product roadmap or a patent filing never quite does.</p>
+        <p>So I kept saying yes. And I haven't stopped.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── What I Believe ───────────────────────────────────────── -->
+  <section id="belief">
+    <p class="belief-headline">"You could use Fiverr. That's not what I am."</p>
+    <div class="belief-cols">
+      <p>Fiverr will get you a deliverable. A file. A checkbox. I'm not interested in checkboxes.<br><br>I'm interested in understanding what you're actually trying to do — and staying until it's done right.</p>
+      <p>No job is too small. No ambition is too large. Resume optimization and e-commerce product launches live in the same practice because they require the same thing: someone who genuinely wants you to win.</p>
+    </div>
+  </section>
+
+  <!-- ─── Services ─────────────────────────────────────────────── -->
+  <section id="services">
+    <div class="services-header">
+      <div class="section-num">02</div>
+      <div class="section-content">
+        <h2>What I do.</h2>
+      </div>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-item">
+        <div class="service-name">Web Design + Development</div>
+        <div class="service-desc">Sites that earn trust, convert visitors, and actually launch.</div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-name">AI Tools + Automation</div>
+        <div class="service-desc">Custom workflows, prompt systems, and tools built around how you actually work.</div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-name">Product Strategy + Roadmapping</div>
+        <div class="service-desc">Clarity on what to build, in what order, and why — from someone who's shipped real products.</div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-name">E-Commerce + Manufacturing</div>
+        <div class="service-desc">From concept through sourcing, production, and selling. End to end.</div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-name">Resume + Personal Branding</div>
+        <div class="service-desc">Positioning that reflects what you've actually built — and opens the right doors.</div>
+      </div>
+
+      <div class="service-item">
+        <div class="service-name">Image + Creative Assets</div>
+        <div class="service-desc">AI-generated photography, renders, and visual assets built to look real and work hard.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── The Range ─────────────────────────────────────────────── -->
+  <section id="range">
+    <div class="range-header">
+      <div class="section-num">03</div>
+      <div class="section-content">
+        <h2>The range.</h2>
+        <p class="range-subhead">From one afternoon to six months.</p>
+      </div>
+    </div>
+
+    <div class="ticker-wrap">
+      <div class="ticker-track">
+        <!-- First set -->
+        <span class="ticker-item">Resume rewrite</span><span class="ticker-sep"></span>
+        <span class="ticker-item cobalt">Logo design</span><span class="ticker-sep"></span>
+        <span class="ticker-item">Full website</span><span class="ticker-sep"></span>
+        <span class="ticker-item cobalt">Product roadmap</span><span class="ticker-sep"></span>
+        <span class="ticker-item">AI workflow</span><span class="ticker-sep"></span>
+        <span class="ticker-item cobalt">E-commerce launch</span><span class="ticker-sep"></span>
+        <span class="ticker-item">Brand identity</span><span class="ticker-sep"></span>
+        <span class="ticker-item cobalt">Pitch deck</span><span class="ticker-sep"></span>
+        <span class="ticker-item">Image generation</span><span class="ticker-sep"></span>
+        <span class="ticker-item cobalt">Manufacturing sourcing</span><span class="ticker-sep"></span>
+        <span class="ticker-item">SEO audit</span><span class="ticker-sep"></span>
+        <span class="ticker-item cobalt">Automation build</span><span class="ticker-sep"></span>
+        <span class="ticker-item">Market research</span><span class="ticker-sep"></span>
+        <span class="ticker-item cobalt">Social content</span><span class="ticker-sep"></span>
+        <span class="ticker-item">Business plan</span><span class="ticker-sep"></span>
+        <!-- Duplicate for seamless loop -->
+        <span class="ticker-item">Resume rewrite</span><span class="ticker-sep"></span>
+        <span class="ticker-item cobalt">Logo design</span><span class="ticker-sep"></span>
+        <span class="ticker-item">Full website</span><span class="ticker-sep"></span>
+        <span class="ticker-item cobalt">Product roadmap</span><span class="ticker-sep"></span>
+        <span class="ticker-item">AI workflow</span><span class="ticker-sep"></span>
+        <span class="ticker-item cobalt">E-commerce launch</span><span class="ticker-sep"></span>
+        <span class="ticker-item">Brand identity</span><span class="ticker-sep"></span>
+        <span class="ticker-item cobalt">Pitch deck</span><span class="ticker-sep"></span>
+        <span class="ticker-item">Image generation</span><span class="ticker-sep"></span>
+        <span class="ticker-item cobalt">Manufacturing sourcing</span><span class="ticker-sep"></span>
+        <span class="ticker-item">SEO audit</span><span class="ticker-sep"></span>
+        <span class="ticker-item cobalt">Automation build</span><span class="ticker-sep"></span>
+        <span class="ticker-item">Market research</span><span class="ticker-sep"></span>
+        <span class="ticker-item cobalt">Social content</span><span class="ticker-sep"></span>
+        <span class="ticker-item">Business plan</span><span class="ticker-sep"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── Portfolio ─────────────────────────────────────────────── -->
+  <section id="portfolio">
+    <div class="portfolio-header">
+      <div class="section-num">04</div>
+      <div class="section-content">
+        <h2>Recent work.</h2>
+      </div>
+    </div>
+
+    <div class="portfolio-list">
+
+      <div class="portfolio-row">
+        <span class="portfolio-name">Haven &amp; Co.</span>
+        <span class="portfolio-desc">Home staging + interior design studio</span>
+        <a href="https://home-by-nkm.vercel.app" target="_blank" rel="noopener" class="portfolio-link">View →</a>
+      </div>
+
+      <div class="portfolio-row">
+        <span class="portfolio-name">Studio Marlowe</span>
+        <span class="portfolio-desc">Editorial interior design brand</span>
+        <a href="https://andrea-thomas-interiors.vercel.app" target="_blank" rel="noopener" class="portfolio-link">View →</a>
+      </div>
+
+      <div class="portfolio-row">
+        <span class="portfolio-name">Rob Laurie</span>
+        <span class="portfolio-desc">Local HVAC specialist site</span>
+        <a href="https://rob-design-variant-2.vercel.app" target="_blank" rel="noopener" class="portfolio-link">View →</a>
+      </div>
+
+      <div class="portfolio-row">
+        <span class="portfolio-name">Southboro Sitters</span>
+        <span class="portfolio-desc">Kids activity + sitting service</span>
+        <a href="https://southboro-sitters.vercel.app" target="_blank" rel="noopener" class="portfolio-link">View →</a>
+      </div>
+
+      <div class="portfolio-row">
+        <span class="portfolio-name">Dufazz</span>
+        <span class="portfolio-desc">Photography + videography portfolio</span>
+        <a href="https://dufazz.vercel.app" target="_blank" rel="noopener" class="portfolio-link">View →</a>
+      </div>
+
+      <div class="portfolio-row">
+        <span class="portfolio-name">Kyle DeCubellis</span>
+        <span class="portfolio-desc">This site</span>
+        <a href="https://kyle-psi.vercel.app" target="_blank" rel="noopener" class="portfolio-link">View →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── Contact ──────────────────────────────────────────────── -->
+  <section id="contact" style="border-top: none;">
+    <div class="contact-num">05</div>
+    <h2 class="contact-headline">
+      Let's win<br>
+      <span class="accent">together.</span>
+    </h2>
+    <p class="contact-sub">Tell me what you're working on. There's no ask too small or too ambitious.</p>
+    <a href="mailto:hello@kyledec.com" class="contact-email">hello@kyledec.com</a>
+    <p class="contact-location">Greater Boston &nbsp;·&nbsp; Available now</p>
+  </section>
+
+  <!-- ─── Footer ──────────────────────────────────────────────── -->
+  <footer>
+    <span>© 2026 Kyle DeCubellis</span>
+    <span>kyledec.com</span>
+  </footer>
+
+</body>
+</html>
