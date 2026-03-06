@@ -8,7 +8,7 @@ const VIEWPORT = { once: true, margin: "-80px" } as const;
 
 const projects = [
   {
-    title: "Home by NKM",
+    title: "Haven & Co.",
     category: "Home Staging / Brand Identity",
     description:
       "Full brand identity + staging site for a Greater Boston home stager. Gallery, testimonials, service tiers, and inquiry flow.",
@@ -49,7 +49,7 @@ const projects = [
     link: "https://dufazz.vercel.app/",
   },
   {
-    title: "Andrea Thomas Interiors",
+    title: "Studio Marlowe",
     category: "Interior Design",
     description:
       "Residential design firm site - consultations, mood boards, furniture sourcing, and project coordination for refined, personalized living spaces.",
