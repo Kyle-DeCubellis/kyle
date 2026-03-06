@@ -49,7 +49,7 @@ const projects = [
     link: "https://dufazz.vercel.app/",
   },
   {
-    title: "Studio Marlowe",
+    title: "Andrea Thomas Interiors",
     category: "Interior Design",
     description:
       "Residential design firm site - consultations, mood boards, furniture sourcing, and project coordination for refined, personalized living spaces.",
