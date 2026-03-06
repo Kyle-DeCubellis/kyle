@@ -51,10 +51,10 @@ const LINES: TermLine[] = [
   { type: "spacer",                                                          delay: 900  },
   // background.log block
   { type: "prompt",  prompt: "$ ", command: "cat ./background.log",           delay: 1100 },
-  { type: "output",  text: "[2012]  Bose Corporation  —  co-op kid → lead engineer",       delay: 1600 },
-  { type: "output",  text: "[2019]  Bose Frames       —  napkin sketch → global product",  delay: 2000 },
-  { type: "output",  text: "[2020]  Hatch             —  1M+ connected devices shipped",   delay: 2400 },
-  { type: "output",  text: "[2021]  VP Product        —  built the whole thing, start to scale", delay: 2800 },
+  { type: "output",  text: "[2012]  Bose Corporation  -  co-op kid → lead engineer",       delay: 1600 },
+  { type: "output",  text: "[2019]  Bose Frames       -  napkin sketch → global product",  delay: 2000 },
+  { type: "output",  text: "[2020]  Hatch             -  1M+ connected devices shipped",   delay: 2400 },
+  { type: "output",  text: "[2021]  VP Product        -  built the whole thing, start to scale", delay: 2800 },
   { type: "spacer",                                                          delay: 3100 },
   // credentials block
   { type: "prompt",  prompt: "$ ", command: "ls ./credentials/",              delay: 3300 },
@@ -260,7 +260,7 @@ function HeroContent() {
           style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
         >
           I build elegant websites, set up AI tools that actually save you
-          time, and help real businesses compete online — no tech background
+          time, and help real businesses compete online - no tech background
           required.
         </p>
 
@@ -329,7 +329,7 @@ export default function Hero() {
   const heroY       = useTransform(scrollYProgress, [0.1, 0.55], [-50, 0]);
 
   return (
-    // Tall section — gives room to scroll through the transition
+    // Tall section - gives room to scroll through the transition
     <section
       ref={containerRef}
       id="hero"
@@ -349,7 +349,7 @@ export default function Hero() {
             background: "#0a0805",
           }}
         >
-          {/* Background video/image — sits behind terminal text */}
+          {/* Background video/image - sits behind terminal text */}
           <video
             id="hero-visual"
             src="/hero-video.mp4"

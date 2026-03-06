@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Kyle DeCubellis — Websites, AI Tools & Strategy for Real Businesses",
+  title: "Kyle DeCubellis - Websites, AI Tools & Strategy for Real Businesses",
   description:
     "I build elegant websites, set up AI tools that save you time, and help real businesses compete online. Greater Boston and beyond.",
   keywords: [
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "Boston",
   ],
   openGraph: {
-    title: "Kyle DeCubellis — Websites, AI Tools & Strategy for Real Businesses",
+    title: "Kyle DeCubellis - Websites, AI Tools & Strategy for Real Businesses",
     description:
       "I build elegant websites, set up AI tools that save you time, and help real businesses compete online. Greater Boston and beyond.",
     images: [{ url: "/og-image.jpg" }],

@@ -17,7 +17,7 @@ const fadeUp = {
 const categories = [
   {
     label: "Frontend",
-    summary: "Liquid theme editor + Replo for custom storefronts and landing pages built to convert — no agency dependency.",
+    summary: "Liquid theme editor + Replo for custom storefronts and landing pages built to convert - no agency dependency.",
     tools: ["Liquid Theme Editor", "Replo"],
     accent: "#c75a3a",
   },
@@ -41,7 +41,7 @@ const categories = [
   },
   {
     label: "Social Proof",
-    summary: "Yotpo for review collection, display, and syndication — tied directly to PDPs and ad creative.",
+    summary: "Yotpo for review collection, display, and syndication - tied directly to PDPs and ad creative.",
     tools: ["Yotpo"],
     accent: "#8b6914",
   },

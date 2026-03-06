@@ -9,7 +9,7 @@ const segments = [
   {
     emoji: "🔧",
     label: "Trades & Home Services",
-    description: "HVAC, plumbing, electrical, landscaping — you do great work. Let your website prove it.",
+    description: "HVAC, plumbing, electrical, landscaping - you do great work. Let your website prove it.",
   },
   {
     emoji: "🏠",
@@ -19,7 +19,7 @@ const segments = [
   {
     emoji: "🚗",
     label: "Gig Workers & Freelancers",
-    description: "Uber, DoorDash, or five side hustles — a professional web presence makes you more legit.",
+    description: "Uber, DoorDash, or five side hustles - a professional web presence makes you more legit.",
   },
   {
     emoji: "🍽️",
@@ -29,7 +29,7 @@ const segments = [
   {
     emoji: "💆",
     label: "Wellness & Beauty",
-    description: "Salons, trainers, therapists — booking, portfolio, and brand all in one place.",
+    description: "Salons, trainers, therapists - booking, portfolio, and brand all in one place.",
   },
   {
     emoji: "🧠",
@@ -102,12 +102,12 @@ export default function WhoIServe() {
             viewport={VIEWPORT}
             transition={{ duration: 0.55, ease: EASE, delay: 0.16 }}
           >
-            My best clients aren&apos;t tech people — they&apos;re good at what they do
+            My best clients aren&apos;t tech people - they&apos;re good at what they do
             and tired of their online presence not showing it.
           </motion.p>
         </div>
 
-        {/* Grid — staggered cards */}
+        {/* Grid - staggered cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {segments.map((seg, i) => (
             <motion.div
@@ -162,7 +162,7 @@ export default function WhoIServe() {
             className="mt-4 block text-amber text-sm font-medium"
             style={{ fontFamily: "var(--font-body)" }}
           >
-            — Kyle DeCubellis
+            - Kyle DeCubellis
           </cite>
         </motion.div>
       </div>

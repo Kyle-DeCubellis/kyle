@@ -32,7 +32,7 @@ const projects = [
     title: "Southboro Sitters",
     category: "Childcare / Local Business",
     description:
-      "Zero to live business launch. Logo, site, copy, Calendly booking, and pricing — for a kids' mother's helper service in Southborough.",
+      "Zero to live business launch. Logo, site, copy, Calendly booking, and pricing - for a kids' mother's helper service in Southborough.",
     tags: ["Full Launch", "Booking", "Brand & Copy"],
     gradient: "linear-gradient(135deg, #c17a2e 0%, #1a1208 100%)",
     image: "southboro-sitters-mockup.jpg",
@@ -42,7 +42,7 @@ const projects = [
     title: "Dufazz",
     category: "Photography / Creative",
     description:
-      "Portfolio site for a photographer, cinematographer, and director — showcasing visual work with a clean, immersive layout.",
+      "Portfolio site for a photographer, cinematographer, and director - showcasing visual work with a clean, immersive layout.",
     tags: ["Portfolio", "Creative", "Visual Design"],
     gradient: "linear-gradient(135deg, #3d2b1f 0%, #6b7c5c 100%)",
     image: "dufazz-mockup.jpg",
@@ -52,7 +52,7 @@ const projects = [
     title: "Andrea Thomas Interiors",
     category: "Interior Design",
     description:
-      "Residential design firm site — consultations, mood boards, furniture sourcing, and project coordination for refined, personalized living spaces.",
+      "Residential design firm site - consultations, mood boards, furniture sourcing, and project coordination for refined, personalized living spaces.",
     tags: ["Design Firm", "Services", "Residential"],
     gradient: "linear-gradient(135deg, #1a1208 0%, #c17a2e 100%)",
     image: "andrea-thomas-interiors-mockup.jpg",
@@ -98,7 +98,7 @@ export default function PastWork() {
             viewport={VIEWPORT}
             transition={{ duration: 0.55, ease: EASE, delay: 0.16 }}
           >
-            A sample of what I&apos;ve built — from local trades to major consumer brands.
+            A sample of what I&apos;ve built - from local trades to major consumer brands.
           </motion.p>
         </div>
 

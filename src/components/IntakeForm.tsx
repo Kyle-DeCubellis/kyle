@@ -31,7 +31,7 @@ const services = [
   "AI tools for my business",
   "Growth & strategy advice",
   "Full-stack build or backend",
-  "Not sure — let's talk",
+  "Not sure - let's talk",
 ];
 
 const BG = "linear-gradient(160deg, #1a1208 0%, #3d2b1f 50%, #1a1208 100%)";
@@ -128,7 +128,7 @@ export default function IntakeForm() {
                 style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
               >
                 I typically respond within 48 hours. If you shared your idea well,
-                I&apos;ll come back with real thoughts — not a template.
+                I&apos;ll come back with real thoughts - not a template.
               </p>
             </motion.div>
           ) : (
@@ -351,7 +351,7 @@ export default function IntakeForm() {
                     rows={5}
                     value={form.message}
                     onChange={handleChange}
-                    placeholder="What do you do? What's not working? What do you wish existed? Don't worry about being technical — just tell me what's on your mind."
+                    placeholder="What do you do? What's not working? What do you wish existed? Don't worry about being technical - just tell me what's on your mind."
                     className="w-full px-4 py-3.5 rounded-xl bg-ivory/8 border border-ivory/12 text-ivory placeholder-ivory/30 text-sm focus:outline-none focus:border-amber/50 focus:bg-ivory/12 transition-all duration-200 resize-none leading-relaxed"
                     style={{ fontFamily: "var(--font-body)" }}
                   />

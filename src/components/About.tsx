@@ -20,7 +20,7 @@ export default function About() {
       id="about"
       className="relative py-24 md:py-32 bg-ivory overflow-hidden"
     >
-      {/* Decorative large letter — fades in slowly on its own */}
+      {/* Decorative large letter - fades in slowly on its own */}
       <motion.div
         className="absolute right-0 top-0 text-[20rem] font-black text-fog leading-none select-none pointer-events-none hidden lg:block"
         style={{ fontFamily: "var(--font-display)", transform: "translate(10%, -10%)" }}
@@ -36,7 +36,7 @@ export default function About() {
       <div className="relative z-10 max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-          {/* Left column — slides in from left */}
+          {/* Left column - slides in from left */}
           <motion.div
             initial={{ opacity: 0, x: -32 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -59,7 +59,7 @@ export default function About() {
               About Kyle
             </span>
 
-            {/* Headline — lines stagger */}
+            {/* Headline - lines stagger */}
             <div
               className="mt-4 text-4xl md:text-5xl font-bold text-charcoal leading-tight"
               style={{ fontFamily: "var(--font-display)" }}
@@ -88,7 +88,7 @@ export default function About() {
               transition={{ duration: 0.6, ease: EASE, delay: 0.25 }}
             >
               <p>
-                I spent 8 years at Bose — from co-op student building StayHear tips
+                I spent 8 years at Bose - from co-op student building StayHear tips
                 to Product Lead shipping Bose Frames to millions of people worldwide.
                 I hold 3 patents. I know what it takes to go from a sketch on a napkin
                 to a product in someone&apos;s hands.
@@ -96,14 +96,14 @@ export default function About() {
               <p>
                 After Bose I went into the startup world, leading IoT product development
                 for connected devices, then moved into senior product leadership for a
-                direct-to-consumer hardware brand — building data systems, AI workflows,
+                direct-to-consumer hardware brand - building data systems, AI workflows,
                 and multi-SKU roadmaps from scratch.
               </p>
               <p>
                 This side of my work is personal. I want the electrician, the personal
-                trainer, the gig worker — people who are{" "}
+                trainer, the gig worker - people who are{" "}
                 <em className="text-charcoal font-medium">really good</em> at what they
-                do — to have the same quality online presence that big companies take
+                do - to have the same quality online presence that big companies take
                 for granted. So I build it for them.
               </p>
             </motion.div>
@@ -134,7 +134,7 @@ export default function About() {
             </motion.div>
           </motion.div>
 
-          {/* Right column — slides in from right */}
+          {/* Right column - slides in from right */}
           <motion.div
             initial={{ opacity: 0, x: 32 }}
             whileInView={{ opacity: 1, x: 0 }}
