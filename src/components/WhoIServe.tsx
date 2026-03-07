@@ -46,6 +46,11 @@ const segments = [
     label: "Friends & Family",
     description: "Word of mouth is how this grows. If someone you know sent you here, you're already in.",
   },
+  {
+    emoji: "👨‍👩‍👧",
+    label: "Parents",
+    description: "Running a household and a side business at the same time. Let's make your online presence one less thing on the list.",
+  },
 ];
 
 export default function WhoIServe() {

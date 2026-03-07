@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://kyledec.com"),
   title: "Kyle DeCubellis — Product, Strategy & Digital",
   description:
-    "Product leader and builder helping businesses and individuals create a powerful online presence — from elegant websites to AI-powered workflows.",
+    "Product leader and builder helping businesses and individuals create a powerful online presence from elegant websites to AI-powered workflows.",
   keywords: [
     "product strategy",
     "website design",
@@ -13,6 +14,16 @@ export const metadata: Metadata = {
     "Kyle DeCubellis",
     "Boston",
   ],
+  alternates: {
+    canonical: "https://kyledec.com",
+  },
+  openGraph: {
+    url: "https://kyledec.com",
+    title: "Kyle DeCubellis — Product, Strategy & Digital",
+    description:
+      "Product leader and builder helping businesses and individuals create a powerful online presence from elegant websites to AI-powered workflows.",
+    siteName: "Kyle DeCubellis",
+  },
 };
 
 export default function RootLayout({
