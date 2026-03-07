@@ -15,8 +15,14 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      const hero = document.getElementById("hero");
+      const threshold = hero
+        ? hero.offsetTop + hero.offsetHeight - window.innerHeight
+        : window.innerHeight;
+      setScrolled(window.scrollY > threshold);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

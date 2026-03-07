@@ -237,8 +237,11 @@ function HeroContent() {
 
       </div>
 
-      {/* Bottom fade into next section */}
-      <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-ivory z-10" />
+      {/* Bottom fade into Services (#faf6f0 / ivory) */}
+      <div
+        className="absolute bottom-0 left-0 right-0 z-10"
+        style={{ height: "120px", background: "linear-gradient(to bottom, #0a0804, #faf6f0)" }}
+      />
     </div>
   );
 }
@@ -272,7 +275,7 @@ export default function Hero() {
       className="relative"
       style={{ height: "220vh" }}
     >
-      <div className="sticky top-0 h-screen overflow-hidden">
+      <div className="sticky top-0 h-screen overflow-hidden" style={{ background: "#0a0804" }}>
 
         {/* ── Layer 1: Terminal (ground level) ── */}
         <motion.div
@@ -282,7 +285,7 @@ export default function Hero() {
             scale: terminalScale,
             y: terminalY,
             filter: terminalFilter,
-            background: "#0a0805",
+            background: "#0a0804",
           }}
         >
           {/* Subtle scanline overlay */}
