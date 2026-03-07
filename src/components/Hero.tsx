@@ -53,8 +53,8 @@ function TerminalLine({
       initial={{ opacity: 0, x: -6 }}
       animate={visible ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.2, ease: "easeOut" }}
-      className={`flex items-start gap-1.5 font-mono text-sm leading-relaxed ${
-        isOutput ? "pl-4 text-amber/60" : "text-amber"
+      className={`flex items-start gap-1.5 font-mono text-[10px] sm:text-xs md:text-sm leading-relaxed ${
+        isOutput ? "pl-3 sm:pl-4 text-amber/60" : "text-amber"
       }`}
     >
       {line.prompt && (
@@ -62,7 +62,7 @@ function TerminalLine({
       )}
       <span>{line.text}</span>
       {isLast && visible && (
-        <span className="inline-block w-2 h-4 bg-amber ml-0.5 animate-pulse" />
+        <span className="inline-block w-1.5 h-3 sm:w-2 sm:h-4 bg-amber ml-0.5 animate-pulse" />
       )}
     </motion.div>
   );
@@ -81,7 +81,7 @@ function Terminal() {
   }, []);
 
   return (
-    <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-24 py-24">
+    <div className="absolute inset-0 flex flex-col justify-center px-5 sm:px-8 md:px-16 lg:px-24 py-16 md:py-24 overflow-hidden">
       {/* Window chrome */}
       <div className="max-w-2xl w-full">
         <div className="flex items-center gap-2 mb-4 opacity-40">
@@ -177,7 +177,7 @@ function HeroContent() {
 
         {/* Headline */}
         <h1
-          className="text-ivory text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-none tracking-tight max-w-4xl"
+          className="text-ivory text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-none tracking-tight max-w-4xl"
           style={{ fontFamily: "var(--font-display)" }}
         >
           Your idea
