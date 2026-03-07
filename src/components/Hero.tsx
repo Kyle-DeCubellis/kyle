@@ -12,26 +12,28 @@ import { ArrowDown } from "lucide-react";
 // ─── Terminal sequence ───────────────────────────────────────────────────────
 
 const LINES: { prompt?: string; text: string; output?: string; delay: number }[] = [
-  { prompt: "$ ", text: "whoami",                                        delay: 300  },
-  { text: "kyle-decubellis",                                             delay: 700  },
-  { text: "",                                                            delay: 900  },
-  { prompt: "$ ", text: "cat ./background.log",                          delay: 1100 },
-  { text: "[2012] Bose Corporation — co-op → Lead Design Engineer",      delay: 1600 },
-  { text: "[2019] Product Lead — shipped Bose Frames globally",          delay: 2000 },
-  { text: "[2020] Technical PM — Hatch IoT connected devices",           delay: 2400 },
-  { text: "[2021] VP Product — DTC consumer hardware at scale",          delay: 2800 },
-  { text: "",                                                            delay: 3100 },
-  { prompt: "$ ", text: "ls ./credentials/",                             delay: 3300 },
-  { text: "3-patents/   iso-13485/   northeastern-ME/   mitx/",          delay: 3700 },
-  { text: "",                                                            delay: 3900 },
-  { prompt: "$ ", text: "ls ./services/",                                delay: 4100 },
-  { text: "websites/   ai-tools/   strategy/   full-stack/",            delay: 4500 },
-  { text: "",                                                            delay: 4700 },
-  { prompt: "$ ", text: "./launch --for=real-people --no-jargon",        delay: 4900 },
-  { text: "> compiling warmth.............. ✓",                          delay: 5500 },
-  { text: "> stripping tech-bro............. ✓",                         delay: 5900 },
-  { text: "> loading craft.................. ✓",                         delay: 6300 },
-  { text: "> ready.",                                                    delay: 6700 },
+  { prompt: "$ ", text: "whoami",                              delay: 300  },
+  { text: "kyle-decubellis",                                  delay: 700  },
+  { text: "",                                                 delay: 900  },
+  { prompt: "$ ", text: "cat ./background.log",               delay: 1100 },
+  { text: "[2012] Bose Corp — Lead Design Engineer",          delay: 1600 },
+  { text: "[2019] Product Lead — Bose Frames",                delay: 2000 },
+  { text: "[2020] Technical PM — Hatch IoT",                  delay: 2400 },
+  { text: "[2021] VP Product — DTC hardware",                 delay: 2800 },
+  { text: "",                                                 delay: 3100 },
+  { prompt: "$ ", text: "ls ./credentials/",                  delay: 3300 },
+  { text: "3-patents/  iso-13485/  northeastern-ME/",         delay: 3700 },
+  { text: "mitx/",                                           delay: 3950 },
+  { text: "",                                                 delay: 4100 },
+  { prompt: "$ ", text: "ls ./services/",                     delay: 4300 },
+  { text: "websites/  ai-tools/  strategy/",                  delay: 4700 },
+  { text: "full-stack/",                                      delay: 4950 },
+  { text: "",                                                 delay: 5100 },
+  { prompt: "$ ", text: "./launch --no-jargon",               delay: 5300 },
+  { text: "> compiling warmth......... ✓",                    delay: 5800 },
+  { text: "> stripping tech-bro....... ✓",                    delay: 6200 },
+  { text: "> loading craft............ ✓",                    delay: 6600 },
+  { text: "> ready.",                                         delay: 7000 },
 ];
 
 function TerminalLine({
@@ -53,7 +55,7 @@ function TerminalLine({
       initial={{ opacity: 0, x: -6 }}
       animate={visible ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.2, ease: "easeOut" }}
-      className={`flex items-start gap-1.5 font-mono text-[10px] sm:text-xs md:text-sm leading-relaxed ${
+      className={`flex items-start gap-1.5 font-mono text-xs md:text-sm leading-relaxed ${
         isOutput ? "pl-3 sm:pl-4 text-amber/60" : "text-amber"
       }`}
     >
