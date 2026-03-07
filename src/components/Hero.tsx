@@ -11,29 +11,45 @@ import { ArrowDown } from "lucide-react";
 
 // ─── Terminal sequence ───────────────────────────────────────────────────────
 
-const LINES: { prompt?: string; text: string; output?: string; delay: number }[] = [
+const LINES: { prompt?: string; text: string; subtext?: string; delay: number }[] = [
   { prompt: "$ ", text: "whoami",                              delay: 300  },
   { text: "kyle-decubellis",                                  delay: 700  },
   { text: "",                                                 delay: 900  },
   { prompt: "$ ", text: "cat ./background.log",               delay: 1100 },
-  { text: "[2012] Bose Corp — Lead Design Engineer",          delay: 1600 },
-  { text: "[2019] Product Lead — Bose Frames",                delay: 2000 },
-  { text: "[2020] Technical PM — Hatch IoT",                  delay: 2400 },
-  { text: "[2021] VP Product — DTC hardware",                 delay: 2800 },
-  { text: "",                                                 delay: 3100 },
-  { prompt: "$ ", text: "ls ./credentials/",                  delay: 3300 },
-  { text: "3-patents/  iso-13485/  northeastern-ME/",         delay: 3700 },
-  { text: "mitx/",                                           delay: 3950 },
-  { text: "",                                                 delay: 4100 },
-  { prompt: "$ ", text: "ls ./services/",                     delay: 4300 },
-  { text: "websites/  ai-tools/  strategy/",                  delay: 4700 },
-  { text: "full-stack/",                                      delay: 4950 },
-  { text: "",                                                 delay: 5100 },
-  { prompt: "$ ", text: "./launch --no-jargon",               delay: 5300 },
-  { text: "> compiling warmth......... ✓",                    delay: 5800 },
-  { text: "> stripping tech-bro....... ✓",                    delay: 6200 },
-  { text: "> loading craft............ ✓",                    delay: 6600 },
-  { text: "> ready.",                                         delay: 7000 },
+  {
+    text: "[2012] Bose Corporation",
+    subtext: "          -> co-op kid > lead project engineer",
+    delay: 1600,
+  },
+  {
+    text: "[2019] Bose Frames",
+    subtext: "          -> napkin sketch > shipped product",
+    delay: 2300,
+  },
+  {
+    text: "[2020] Hatch",
+    subtext: "          -> 1M+ connected devices, built the whole stack",
+    delay: 3000,
+  },
+  {
+    text: "[2021] VP Product",
+    subtext: "          -> owned hardware, software, and vendors",
+    delay: 3700,
+  },
+  { text: "",                                                 delay: 4200 },
+  { prompt: "$ ", text: "ls ./credentials/",                  delay: 4400 },
+  { text: "3-patents/  iso-13485/  northeastern-ME/",         delay: 4800 },
+  { text: "mitx/",                                           delay: 5050 },
+  { text: "",                                                 delay: 5200 },
+  { prompt: "$ ", text: "ls ./services/",                     delay: 5400 },
+  { text: "websites/  ai-tools/  strategy/",                  delay: 5800 },
+  { text: "full-stack/",                                      delay: 6050 },
+  { text: "",                                                 delay: 6200 },
+  { prompt: "$ ", text: "./launch --no-jargon",               delay: 6400 },
+  { text: "> compiling warmth......... ✓",                    delay: 6900 },
+  { text: "> stripping tech-bro....... ✓",                    delay: 7300 },
+  { text: "> loading craft............ ✓",                    delay: 7700 },
+  { text: "> ready.",                                         delay: 8100 },
 ];
 
 function TerminalLine({
@@ -50,21 +66,51 @@ function TerminalLine({
 
   if (isEmpty) return <div className="h-3" />;
 
+  // Split subtext at "->" so we can color the arrow independently
+  const subtextParts = line.subtext
+    ? (() => {
+        const idx = line.subtext.indexOf("->");
+        return {
+          before: line.subtext.slice(0, idx),
+          after: line.subtext.slice(idx + 2),
+        };
+      })()
+    : null;
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -6 }}
       animate={visible ? { opacity: 1, x: 0 } : {}}
       transition={{ duration: 0.2, ease: "easeOut" }}
-      className={`flex items-start gap-1.5 font-mono text-xs md:text-sm leading-relaxed ${
-        isOutput ? "pl-3 sm:pl-4 text-amber/60" : "text-amber"
-      }`}
     >
-      {line.prompt && (
-        <span className="text-amber/40 select-none flex-shrink-0">{line.prompt}</span>
-      )}
-      <span>{line.text}</span>
-      {isLast && visible && (
-        <span className="inline-block w-1.5 h-3 sm:w-2 sm:h-4 bg-amber ml-0.5 animate-pulse" />
+      {/* Primary line */}
+      <div
+        className={`flex items-start gap-1.5 font-mono text-xs md:text-sm leading-relaxed ${
+          isOutput ? "pl-3 sm:pl-4 text-amber/60" : "text-amber"
+        }`}
+      >
+        {line.prompt && (
+          <span className="text-amber/40 select-none flex-shrink-0">{line.prompt}</span>
+        )}
+        <span>{line.text}</span>
+        {isLast && visible && !subtextParts && (
+          <span className="inline-block w-1.5 h-3 sm:w-2 sm:h-4 bg-amber ml-0.5 animate-pulse" />
+        )}
+      </div>
+
+      {/* Indented subtext line with colored arrow */}
+      {subtextParts && (
+        <div
+          className="font-mono text-xs md:text-sm leading-relaxed pl-3 sm:pl-4 text-amber/60"
+          style={{ whiteSpace: "pre" }}
+        >
+          <span className="select-none">{subtextParts.before}</span>
+          <span className="text-amber">-&gt;</span>
+          <span>{subtextParts.after}</span>
+          {isLast && visible && (
+            <span className="inline-block w-1.5 h-3 sm:w-2 sm:h-4 bg-amber ml-0.5 animate-pulse align-middle" />
+          )}
+        </div>
       )}
     </motion.div>
   );
