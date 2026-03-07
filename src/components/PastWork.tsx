@@ -8,54 +8,44 @@ const VIEWPORT = { once: true, margin: "-80px" } as const;
 
 const projects = [
   {
-    title: "Rob's Mini Split Co.",
+    category: "Home Staging / Brand Identity",
+    title: "Haven & Co.",
+    description:
+      "Full brand identity and staging site for a Greater Boston home stager. Gallery, testimonials, service tiers, and inquiry flow.",
+    tags: ["Brand Identity", "Gallery", "Booking"],
+    link: "https://home-by-nkm.vercel.app/",
+  },
+  {
+    category: "Interior Design",
+    title: "Studio Marlowe",
+    description:
+      "Editorial interior design brand built around a dark architectural aesthetic. Gallery, services, and inquiry flow.",
+    tags: ["Web Design", "Editorial", "Brand"],
+    link: "https://andrea-thomas-interiors.vercel.app/",
+  },
+  {
     category: "HVAC / Trades",
+    title: "Rob Laurie Electrical",
     description:
-      "A warm, boutique web presence for a local mini split installation business. Two design variants — bold modern and soft boutique — built to convert local search traffic into booked jobs.",
-    tags: ["Web Design", "Local SEO", "Two Variants"],
-    gradient: "linear-gradient(135deg, #c75a3a 0%, #3d2b1f 100%)",
-    emoji: "❄️",
-    link: "https://github.com/kyle-decubellis/rob-design-variant-2",
+      "Conversion-focused site for a solo MetroWest mini split specialist. Built around local trust signals, certifications, and a single clear CTA.",
+    tags: ["Web Design", "Local SEO", "Conversion"],
+    link: "https://rob-design-variant-2.vercel.app/",
   },
   {
-    title: "Home by NKM",
-    category: "Interior Design / Staging",
+    category: "Childcare / Local Business",
+    title: "Southboro Sitters",
     description:
-      "Clean, elegant website for a home staging and interior design professional. Showcase portfolio, services, and booking — all in a refined, photo-driven layout.",
-    tags: ["Portfolio Site", "Booking", "Brand Identity"],
-    gradient: "linear-gradient(135deg, #6b7c5c 0%, #2a1a0e 100%)",
-    emoji: "🏡",
-    link: "https://github.com/kyle-decubellis/home-by-nkm",
+      "Zero to live business launch. Logo, site, copy, Calendly booking, and pricing for a kids mother's helper service.",
+    tags: ["Full Launch", "Booking", "Brand & Copy"],
+    link: "https://southboro-sitters.vercel.app/",
   },
   {
-    title: "Analytics Dashboard",
-    category: "Consumer Electronics Brand",
+    category: "Photography / Creative",
+    title: "Dufazz",
     description:
-      "Custom data dashboard built for a leading consumer electronics company — synthesizing sales performance, inventory signals, and customer metrics into a single actionable view.",
-    tags: ["JavaScript", "Data Viz", "eCommerce Analytics"],
-    gradient: "linear-gradient(135deg, #c17a2e 0%, #1a1208 100%)",
-    emoji: "📊",
-    link: null,
-  },
-  {
-    title: "Product App Mockup",
-    category: "Consumer Hardware",
-    description:
-      "Interactive mobile app concept and prototype for a hardware product companion app — covering onboarding, settings, and firmware update flows.",
-    tags: ["UX/UI", "Prototype", "Mobile"],
-    gradient: "linear-gradient(135deg, #3d2b1f 0%, #6b7c5c 100%)",
-    emoji: "📱",
-    link: null,
-  },
-  {
-    title: "Tupelo",
-    category: "Custom Build",
-    description:
-      "A custom JavaScript project — details available on request. Demonstrates backend integration and client-side interactivity built to specification.",
-    tags: ["JavaScript", "Custom Build", "Full Stack"],
-    gradient: "linear-gradient(135deg, #1a1208 0%, #c17a2e 100%)",
-    emoji: "⚡",
-    link: "https://github.com/kyle-decubellis/jesse",
+      "Portfolio site for a Boston-area photographer, cinematographer, and director. Bold, minimal, built to let the work speak.",
+    tags: ["Portfolio", "Creative", "Visual Design"],
+    link: "https://dufazz.vercel.app/",
   },
 ];
 
@@ -97,7 +87,7 @@ export default function PastWork() {
             viewport={VIEWPORT}
             transition={{ duration: 0.55, ease: EASE, delay: 0.16 }}
           >
-            A sample of what I&apos;ve built — from local trades to major consumer brands.
+            A sample of what I&apos;ve built — from local trades to creative brands.
           </motion.p>
         </div>
 
@@ -113,25 +103,7 @@ export default function PastWork() {
               transition={{ duration: 0.55, ease: EASE, delay: 0.07 * i }}
               whileHover={{ y: -4, transition: { duration: 0.2, ease: "easeOut" } }}
             >
-              {/* Color bleed header */}
-              <div
-                className="h-36 flex items-center justify-center relative overflow-hidden"
-                style={{ background: proj.gradient }}
-              >
-                <motion.span
-                  className="text-5xl relative z-10"
-                  initial={{ scale: 0.5, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  viewport={VIEWPORT}
-                  transition={{ duration: 0.45, ease: EASE, delay: 0.07 * i + 0.15 }}
-                >
-                  {proj.emoji}
-                </motion.span>
-                <div className="absolute inset-0 opacity-20 bg-gradient-to-b from-transparent to-charcoal" />
-              </div>
-
-              {/* Card body */}
-              <div className="p-6">
+              <div className="p-6 pt-7">
                 <div className="flex items-start justify-between mb-3">
                   <div>
                     <p
@@ -147,17 +119,15 @@ export default function PastWork() {
                       {proj.title}
                     </h3>
                   </div>
-                  {proj.link && (
-                    <a
-                      href={proj.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-walnut/40 hover:text-amber transition-colors mt-1 flex-shrink-0 ml-2"
-                      aria-label="View project"
-                    >
-                      <ExternalLink size={16} />
-                    </a>
-                  )}
+                  <a
+                    href={proj.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-walnut/40 hover:text-amber transition-colors mt-1 flex-shrink-0 ml-2"
+                    aria-label="View project"
+                  >
+                    <ExternalLink size={16} />
+                  </a>
                 </div>
 
                 <p
@@ -181,33 +151,19 @@ export default function PastWork() {
               </div>
             </motion.div>
           ))}
-
-          {/* "More on the way" card */}
-          <motion.div
-            className="rounded-3xl border-2 border-dashed border-fog flex items-center justify-center p-8 text-center min-h-48"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={VIEWPORT}
-            transition={{ duration: 0.7, ease: EASE, delay: 0.35 }}
-          >
-            <div>
-              <p
-                className="text-walnut/30 text-4xl mb-3"
-                style={{ fontFamily: "var(--font-display)" }}
-              >
-                +
-              </p>
-              <p
-                className="text-walnut/40 text-sm leading-relaxed"
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                More projects added regularly.
-                <br />
-                Yours could be next.
-              </p>
-            </div>
-          </motion.div>
         </div>
+
+        {/* More coming soon */}
+        <motion.p
+          className="mt-12 text-center text-walnut/40 text-sm"
+          style={{ fontFamily: "var(--font-body)" }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={VIEWPORT}
+          transition={{ duration: 0.6, ease: EASE, delay: 0.3 }}
+        >
+          More coming soon.
+        </motion.p>
       </div>
     </section>
   );

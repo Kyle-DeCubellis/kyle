@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://kyledec.com"),
-  title: "Kyle DeCubellis — Product, Strategy & Digital",
+  title: "Kyle DeCubellis - Let's win together",
   description:
     "Product leader and builder helping businesses and individuals create a powerful online presence from elegant websites to AI-powered workflows.",
   keywords: [
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     url: "https://kyledec.com",
-    title: "Kyle DeCubellis — Product, Strategy & Digital",
+    title: "Kyle DeCubellis - Let's win together",
     description:
       "Product leader and builder helping businesses and individuals create a powerful online presence from elegant websites to AI-powered workflows.",
     siteName: "Kyle DeCubellis",
