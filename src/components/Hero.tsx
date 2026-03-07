@@ -11,7 +11,7 @@ import { ArrowDown } from "lucide-react";
 
 // ─── Terminal sequence ───────────────────────────────────────────────────────
 
-const LINES: { prompt?: string; text: string; subtext?: string; isComment?: boolean; delay: number }[] = [
+const LINES: { prompt?: string; text: string; subtext?: string; delay: number }[] = [
   { prompt: "$ ", text: "whoami",                              delay: 300  },
   { text: "kyle-decubellis",                                  delay: 700  },
   { text: "",                                                 delay: 900  },
@@ -51,22 +51,6 @@ const LINES: { prompt?: string; text: string; subtext?: string; isComment?: bool
   { text: "> stripping tech-bro....... ✓",                    delay: 7500 },
   { text: "> loading craft............ ✓",                    delay: 7900 },
   { text: "> ready.",                                         delay: 8300 },
-  { text: "",                                                 delay: 8700 },
-  { prompt: "$ ", text: "cat ./why.txt",                      delay: 8900 },
-  { text: "",                                                 delay: 9300 },
-  { text: "  Started by helping friends and family.",         delay: 9500 },
-  { text: "  Realized it was the most fulfilling",            delay: 9800 },
-  { text: "  work I'd ever done.",                            delay: 10100 },
-  { text: "",                                                 delay: 10400 },
-  { text: "  Not because it was easy.",                       delay: 10600 },
-  { text: "  Because it mattered to the person",             delay: 10900 },
-  { text: "  sitting across from me.",                        delay: 11200 },
-  { text: "",                                                 delay: 11400 },
-  { text: "  So I kept saying yes.",                          delay: 11600 },
-  { text: "  Haven't stopped.",                              delay: 11900 },
-  { text: "",                                                 delay: 12200 },
-  { prompt: "$ ", text: "# you could use fiverr.",            isComment: true, delay: 12400 },
-  { prompt: "$ ", text: "# that's not what I am.",            isComment: true, delay: 12800 },
 ];
 
 function TerminalLine({
@@ -80,27 +64,8 @@ function TerminalLine({
 }) {
   const isOutput = !line.prompt && line.text !== "";
   const isEmpty = line.text === "";
-  const isComment = !!line.isComment;
 
   if (isEmpty) return <div className="h-3" />;
-
-  // Comment lines: "$ # ..." rendered fully dimmed
-  if (isComment) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, x: -6 }}
-        animate={visible ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 0.2, ease: "easeOut" }}
-        className="flex items-start gap-1.5 font-mono text-xs md:text-sm leading-relaxed text-amber/35"
-      >
-        <span className="select-none flex-shrink-0">$ </span>
-        <span>{line.text}</span>
-        {isLast && visible && (
-          <span className="inline-block w-1.5 h-3 sm:w-2 sm:h-4 bg-amber/35 ml-0.5 animate-pulse" />
-        )}
-      </motion.div>
-    );
-  }
 
   // Split subtext at "->" so we can color the arrow independently
   const subtextParts = line.subtext
@@ -222,44 +187,41 @@ function HeroContent() {
       />
 
       {/* Content */}
-      <div className="relative z-10 h-full flex flex-col justify-center max-w-6xl mx-auto px-6 pt-20 pb-16">
-        {/* Eyebrow */}
-        <div className="mb-8 inline-flex items-center gap-3">
-          <span className="h-px w-12 bg-amber-light/70" />
-          <span
-            className="text-amber-light text-sm font-medium tracking-widest uppercase"
-            style={{ fontFamily: "var(--font-body)" }}
-          >
-            Greater Boston & Beyond
-          </span>
-        </div>
+      <div className="relative z-10 h-full flex flex-col justify-center max-w-3xl mx-auto px-6 pt-20 pb-16">
 
         {/* Headline */}
         <h1
-          className="text-ivory text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-none tracking-tight max-w-4xl"
+          className="text-ivory text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-none tracking-tight"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          15 years building products
-          <br />
-          <span className="text-amber-light italic">people actually use.</span>
+          This started with a favor.
         </h1>
 
-        {/* Subheadline */}
-        <p
-          className="mt-8 text-amber/70 text-lg sm:text-xl max-w-xl leading-relaxed"
+        {/* Body */}
+        <div
+          className="mt-10 space-y-5 text-amber/70 text-lg sm:text-xl leading-loose max-w-2xl"
           style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
         >
-          Bose. Hatch. Raycon. 10 patents.
-          <br />
-          Now I apply the same standard to
-          <br />
-          whatever you&apos;re building —
-          <br />
-          regardless of size.
-        </p>
+          <p>
+            A friend needed a website. A family member needed help getting a new
+            job. I said yes — and realized it was the most fulfilling work I&apos;d
+            ever done.
+          </p>
+          <p>
+            Not because it was easy. Because it mattered to the person sitting
+            across from me in a way that shipping a patent never quite does.
+          </p>
+          <p>So I kept saying yes. Haven&apos;t stopped.</p>
+        </div>
+
+        {/* Terminal-style comment lines */}
+        <div className="mt-10 space-y-1 font-mono text-xs text-amber/50">
+          <div>$ # you could use fiverr.</div>
+          <div>$ # that&apos;s not what I am.</div>
+        </div>
 
         {/* CTA */}
-        <div className="mt-10">
+        <div className="mt-8">
           <a
             href="#work"
             className="font-mono text-amber hover:text-amber-light transition-colors duration-200 text-sm tracking-wide"
@@ -268,23 +230,11 @@ function HeroContent() {
           </a>
         </div>
 
-        {/* Trust chips */}
-        <div className="mt-12 flex flex-wrap items-center gap-3">
-          {[
-            "Bose Corporation",
-            "3 Patents",
-            "15+ Years in Product",
-            "ISO 13485 Certified",
-          ].map((chip) => (
-            <span
-              key={chip}
-              className="px-3.5 py-1.5 rounded-full border border-ivory/20 text-ivory/55 text-xs tracking-wide"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              {chip}
-            </span>
-          ))}
-        </div>
+        {/* Booking note */}
+        <p className="mt-6 font-mono text-amber/35 text-xs">
+          Currently booking Spring 2026 — a small number of spots at a time.
+        </p>
+
       </div>
 
       {/* Bottom fade into next section */}
