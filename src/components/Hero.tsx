@@ -18,6 +18,9 @@ const C = {
   check:   "#4EC94E",     // green checkmark
   flag:    "#6CB6FF",     // soft blue for --flags
   path:    "#F0B840",     // slightly brighter amber for ./paths
+  cobalt:  "#1A1AFF",     // cobalt blue for -> arrow
+  bgYear:  "#D4A853",     // amber for [YEAR] Company line
+  bgDesc:  "rgba(212,168,83,0.85)", // amber 85% opacity for description
 } as const;
 
 function highlightCommand(cmd: string) {
@@ -34,13 +37,16 @@ function highlightCommand(cmd: string) {
 
 // ─── Terminal sequence ───────────────────────────────────────────────────────
 
-type LineType = "prompt" | "output" | "spacer" | "launch";
+type LineType = "prompt" | "output" | "spacer" | "launch" | "bglog";
 
 interface TermLine {
   type: LineType;
   prompt?: string;
   command?: string;
   text?: string;
+  year?: string;
+  company?: string;
+  desc?: string;
   delay: number;
 }
 
@@ -51,25 +57,28 @@ const LINES: TermLine[] = [
   { type: "spacer",                                                          delay: 900  },
   // background.log block
   { type: "prompt",  prompt: "$ ", command: "cat ./background.log",           delay: 1100 },
-  { type: "output",  text: "[2012]  Bose Corporation  -  co-op kid → lead engineer",       delay: 1600 },
-  { type: "output",  text: "[2019]  Bose Frames       -  napkin sketch → global product",  delay: 2000 },
-  { type: "output",  text: "[2020]  Hatch             -  1M+ connected devices shipped",   delay: 2400 },
-  { type: "output",  text: "[2021]  VP Product        -  built the whole thing, start to scale", delay: 2800 },
-  { type: "spacer",                                                          delay: 3100 },
+  { type: "bglog",   year: "2012", company: "Bose Corporation", desc: "co-op kid > lead project engineer",      delay: 1600 },
+  { type: "spacer",                                                          delay: 1900 },
+  { type: "bglog",   year: "2019", company: "Bose Frames",      desc: "napkin sketch > shipped to market",      delay: 2100 },
+  { type: "spacer",                                                          delay: 2400 },
+  { type: "bglog",   year: "2020", company: "Hatch",            desc: "1M+ connected devices shipped",          delay: 2600 },
+  { type: "spacer",                                                          delay: 2900 },
+  { type: "bglog",   year: "2021", company: "VP Product",       desc: "built the whole stack, start to scale",  delay: 3100 },
+  { type: "spacer",                                                          delay: 3400 },
   // credentials block
-  { type: "prompt",  prompt: "$ ", command: "ls ./credentials/",              delay: 3300 },
-  { type: "output",  text: "patents/[10-granted-4-pending]/  northeastern-ME/  iso-13485/  mitx/", delay: 3700 },
-  { type: "spacer",                                                          delay: 3900 },
+  { type: "prompt",  prompt: "$ ", command: "ls ./credentials/",              delay: 3600 },
+  { type: "output",  text: "patents/[10-granted-4-pending]/  northeastern-ME/  iso-13485/  mitx/", delay: 4000 },
+  { type: "spacer",                                                          delay: 4200 },
   // services block
-  { type: "prompt",  prompt: "$ ", command: "ls ./services/",                 delay: 4100 },
-  { type: "output",  text: "websites/  ai-tools/  strategy/  full-stack/",   delay: 4500 },
-  { type: "spacer",                                                          delay: 4700 },
+  { type: "prompt",  prompt: "$ ", command: "ls ./services/",                 delay: 4400 },
+  { type: "output",  text: "websites/  ai-tools/  strategy/  full-stack/",   delay: 4800 },
+  { type: "spacer",                                                          delay: 5000 },
   // launch block
-  { type: "prompt",  prompt: "$ ", command: "./launch --for=real-people --no-jargon", delay: 4900 },
-  { type: "launch",  text: "> compiling warmth.............. ✓",             delay: 5500 },
-  { type: "launch",  text: "> stripping tech-bro............. ✓",            delay: 5900 },
-  { type: "launch",  text: "> loading craft.................. ✓",            delay: 6300 },
-  { type: "launch",  text: "> ready. ▌",                                     delay: 6700 },
+  { type: "prompt",  prompt: "$ ", command: "./launch --for=real-people --no-jargon", delay: 5200 },
+  { type: "launch",  text: "> compiling warmth.............. ✓",             delay: 5800 },
+  { type: "launch",  text: "> stripping tech-bro............. ✓",            delay: 6200 },
+  { type: "launch",  text: "> loading craft.................. ✓",            delay: 6600 },
+  { type: "launch",  text: "> ready. ▌",                                     delay: 7000 },
 ];
 
 function TerminalLine({
@@ -101,6 +110,14 @@ function TerminalLine({
       )}
       {line.type === "output" && (
         <span className="pl-4" style={{ color: C.output, whiteSpace: "pre" }}>{line.text}</span>
+      )}
+      {line.type === "bglog" && (
+        <span className="pl-4" style={{ whiteSpace: "pre-wrap", display: "inline-block" }}>
+          <span style={{ color: C.bgYear }}>{"  "}[{line.year}] {line.company}{"\n"}</span>
+          <span style={{ color: C.bgDesc }}>{"            "}</span>
+          <span style={{ color: C.cobalt }}>{"->"}</span>
+          <span style={{ color: C.bgDesc }}>{" "}{line.desc}</span>
+        </span>
       )}
       {line.type === "launch" && (
         <span className="pl-4" style={{ whiteSpace: "pre" }}>
