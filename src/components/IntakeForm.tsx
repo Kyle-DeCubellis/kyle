@@ -61,7 +61,7 @@ export default function IntakeForm() {
       `Name: ${form.name}\nEmail: ${form.email}\nBusiness Type: ${form.businessType}\nService: ${form.service}\nBudget: ${form.budget}\n\nMessage:\n${form.message}`
     );
     window.open(
-      `mailto:kyledecubellis@gmail.com?subject=New Inquiry from ${form.name}&body=${mailtoBody}`,
+      `mailto:hello@kyledec.com?subject=New Inquiry from ${form.name}&body=${mailtoBody}`,
       "_blank"
     );
     setTimeout(() => {

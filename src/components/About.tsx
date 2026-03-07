@@ -46,7 +46,7 @@ export default function About() {
               className="mt-4 text-4xl md:text-5xl font-bold text-charcoal leading-tight"
               style={{ fontFamily: "var(--font-display)" }}
             >
-              {["Engineer.", "Builder.", <><em className="text-amber">Connector of dots.</em></>].map(
+              {["Engineer.", "Builder.", <><em className="text-amber">Student of people.</em></>].map(
                 (line, i) => (
                   <motion.div
                     key={i}
@@ -70,22 +70,26 @@ export default function About() {
               transition={{ duration: 0.6, ease: EASE, delay: 0.25 }}
             >
               <p>
-                I spent 2012 to 2020 at Bose - starting as a co-op and finishing as Product
-                Lead on Bose Frames. Over 2 million units shipped, $2 billion in revenue touched,
-                and 3 patents filed. I know what it takes to get from a sketch to a product in
-                someone&apos;s hands at global scale.
+                Good products don&apos;t start with features. They start with understanding
+                who you&apos;re building for.
               </p>
               <p>
-                From there: Technical PM at Hatch, shipping Android, iOS, and AWS-connected IoT
-                devices. Then VP of Product at a DTC consumer hardware brand - 5 million products,
-                4.4+ star weighted average across the portfolio, $3 billion in revenue.
+                I spent 15 years at Bose, Hatch, and Raycon doing exactly that —
+                researching users before a line of code got written, mapping journeys
+                from first impression to loyal advocate, finding the moments where
+                people fall in love with something or quietly walk away.
               </p>
               <p>
-                This side of my work is personal. I want the electrician, the personal
-                trainer, the gig worker — people who are{" "}
-                <em className="text-charcoal font-medium">really good</em> at what they
-                do — to have the same quality online presence that big companies take
-                for granted. So I build it for them.
+                The businesses that win aren&apos;t always the ones with the best product.
+                They&apos;re the ones whose customers feel understood.
+              </p>
+              <p>
+                That feeling starts with how you show up online. That&apos;s what I build for you.
+              </p>
+              <p>
+                I don&apos;t hand things off. I build{" "}
+                <em className="text-charcoal font-medium">with</em> you — from the
+                first conversation through launch and beyond.
               </p>
             </motion.div>
 
@@ -106,7 +110,7 @@ export default function About() {
                 LinkedIn →
               </a>
               <a
-                href="mailto:kyledecubellis@gmail.com"
+                href="mailto:hello@kyledec.com"
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-charcoal text-ivory hover:bg-walnut transition-colors duration-200 text-sm font-medium"
                 style={{ fontFamily: "var(--font-body)" }}
               >

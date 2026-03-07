@@ -75,12 +75,12 @@ export default function Footer() {
             </p>
             <div className="space-y-3">
               <a
-                href="mailto:kyledecubellis@gmail.com"
+                href="mailto:hello@kyledec.com"
                 className="flex items-center gap-2.5 text-ivory/55 hover:text-amber text-sm transition-colors duration-200"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 <Mail size={15} className="flex-shrink-0" />
-                kyledecubellis@gmail.com
+                hello@kyledec.com
               </a>
               <a
                 href="https://www.linkedin.com/in/kyledecubellis"
@@ -120,7 +120,7 @@ export default function Footer() {
             className="text-ivory/20 text-xs italic"
             style={{ fontFamily: "var(--font-display)" }}
           >
-            Built with care. For the people who deserve it.
+            Built for the people who actually make things work.
           </p>
         </motion.div>
       </div>

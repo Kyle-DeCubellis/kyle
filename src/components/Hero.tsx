@@ -11,7 +11,7 @@ import { ArrowDown } from "lucide-react";
 
 // ─── Terminal sequence ───────────────────────────────────────────────────────
 
-const LINES: { prompt?: string; text: string; subtext?: string; delay: number }[] = [
+const LINES: { prompt?: string; text: string; subtext?: string; isComment?: boolean; delay: number }[] = [
   { prompt: "$ ", text: "whoami",                              delay: 300  },
   { text: "kyle-decubellis",                                  delay: 700  },
   { text: "",                                                 delay: 900  },
@@ -23,33 +23,50 @@ const LINES: { prompt?: string; text: string; subtext?: string; delay: number }[
   },
   {
     text: "[2019] Bose Frames",
-    subtext: "          -> napkin sketch > shipped product",
+    subtext: "          -> napkin sketch > shipped to market",
     delay: 2300,
   },
   {
     text: "[2020] Hatch",
-    subtext: "          -> 1M+ connected devices, built the whole stack",
+    subtext: "          -> 1M+ connected devices shipped",
     delay: 3000,
   },
   {
     text: "[2021] VP Product",
-    subtext: "          -> owned hardware, software, and vendors",
+    subtext: "          -> built the whole stack, start to scale",
     delay: 3700,
   },
   { text: "",                                                 delay: 4200 },
   { prompt: "$ ", text: "ls ./credentials/",                  delay: 4400 },
-  { text: "3-patents/  iso-13485/  northeastern-ME/",         delay: 4800 },
-  { text: "mitx/",                                           delay: 5050 },
-  { text: "",                                                 delay: 5200 },
-  { prompt: "$ ", text: "ls ./services/",                     delay: 5400 },
-  { text: "websites/  ai-tools/  strategy/",                  delay: 5800 },
-  { text: "full-stack/",                                      delay: 6050 },
-  { text: "",                                                 delay: 6200 },
-  { prompt: "$ ", text: "./launch --no-jargon",               delay: 6400 },
-  { text: "> compiling warmth......... ✓",                    delay: 6900 },
-  { text: "> stripping tech-bro....... ✓",                    delay: 7300 },
-  { text: "> loading craft............ ✓",                    delay: 7700 },
-  { text: "> ready.",                                         delay: 8100 },
+  { text: "patents/[10-granted-4-pending]/",                  delay: 4800 },
+  { text: "northeastern-ME/",                                 delay: 5000 },
+  { text: "bose/  hatch/  raycon/",                           delay: 5200 },
+  { text: "",                                                 delay: 5400 },
+  { prompt: "$ ", text: "ls ./services/",                     delay: 5600 },
+  { text: "websites/  ai-tools/  strategy/",                  delay: 6000 },
+  { text: "full-stack/",                                      delay: 6200 },
+  { text: "",                                                 delay: 6400 },
+  { prompt: "$ ", text: "./launch --no-jargon",               delay: 6600 },
+  { text: "> compiling warmth......... ✓",                    delay: 7100 },
+  { text: "> stripping tech-bro....... ✓",                    delay: 7500 },
+  { text: "> loading craft............ ✓",                    delay: 7900 },
+  { text: "> ready.",                                         delay: 8300 },
+  { text: "",                                                 delay: 8700 },
+  { prompt: "$ ", text: "cat ./why.txt",                      delay: 8900 },
+  { text: "",                                                 delay: 9300 },
+  { text: "  Started by helping friends and family.",         delay: 9500 },
+  { text: "  Realized it was the most fulfilling",            delay: 9800 },
+  { text: "  work I'd ever done.",                            delay: 10100 },
+  { text: "",                                                 delay: 10400 },
+  { text: "  Not because it was easy.",                       delay: 10600 },
+  { text: "  Because it mattered to the person",             delay: 10900 },
+  { text: "  sitting across from me.",                        delay: 11200 },
+  { text: "",                                                 delay: 11400 },
+  { text: "  So I kept saying yes.",                          delay: 11600 },
+  { text: "  Haven't stopped.",                              delay: 11900 },
+  { text: "",                                                 delay: 12200 },
+  { prompt: "$ ", text: "# you could use fiverr.",            isComment: true, delay: 12400 },
+  { prompt: "$ ", text: "# that's not what I am.",            isComment: true, delay: 12800 },
 ];
 
 function TerminalLine({
@@ -63,8 +80,27 @@ function TerminalLine({
 }) {
   const isOutput = !line.prompt && line.text !== "";
   const isEmpty = line.text === "";
+  const isComment = !!line.isComment;
 
   if (isEmpty) return <div className="h-3" />;
+
+  // Comment lines: "$ # ..." rendered fully dimmed
+  if (isComment) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, x: -6 }}
+        animate={visible ? { opacity: 1, x: 0 } : {}}
+        transition={{ duration: 0.2, ease: "easeOut" }}
+        className="flex items-start gap-1.5 font-mono text-xs md:text-sm leading-relaxed text-amber/35"
+      >
+        <span className="select-none flex-shrink-0">$ </span>
+        <span>{line.text}</span>
+        {isLast && visible && (
+          <span className="inline-block w-1.5 h-3 sm:w-2 sm:h-4 bg-amber/35 ml-0.5 animate-pulse" />
+        )}
+      </motion.div>
+    );
+  }
 
   // Split subtext at "->" so we can color the arrow independently
   const subtextParts = line.subtext
@@ -171,36 +207,11 @@ function Terminal() {
   );
 }
 
-// ─── Warm gradient hero ───────────────────────────────────────────────────────
+// ─── Dark hero (seamless continuation of terminal) ────────────────────────────
 
 function HeroContent() {
-  const gradientRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    let frame: number;
-    let t = 0;
-    const animate = () => {
-      t += 0.003;
-      if (gradientRef.current) {
-        const x = 50 + Math.sin(t) * 8;
-        const y = 50 + Math.cos(t * 0.7) * 6;
-        gradientRef.current.style.background = `
-          radial-gradient(ellipse 80% 70% at ${x}% ${y}%, #c17a2e 0%, transparent 60%),
-          radial-gradient(ellipse 60% 80% at ${100 - x}% ${100 - y}%, #c75a3a 0%, transparent 55%),
-          radial-gradient(ellipse 100% 100% at 50% 50%, #1a1208 0%, #3d2b1f 100%)
-        `;
-      }
-      frame = requestAnimationFrame(animate);
-    };
-    animate();
-    return () => cancelAnimationFrame(frame);
-  }, []);
-
   return (
-    <div className="absolute inset-0">
-      {/* Animated gradient */}
-      <div ref={gradientRef} className="absolute inset-0" />
-
+    <div className="absolute inset-0" style={{ background: "#0a0804" }}>
       {/* Grain texture */}
       <div
         className="absolute inset-0 opacity-[0.035]"
@@ -228,38 +239,32 @@ function HeroContent() {
           className="text-ivory text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-none tracking-tight max-w-4xl"
           style={{ fontFamily: "var(--font-display)" }}
         >
-          Your idea
+          15 years building products
           <br />
-          <span className="text-amber-light italic">deserves</span>
-          <br />
-          to be seen.
+          <span className="text-amber-light italic">people actually use.</span>
         </h1>
 
-        {/* Sub */}
+        {/* Subheadline */}
         <p
-          className="mt-8 text-ivory/75 text-lg sm:text-xl max-w-xl leading-relaxed"
+          className="mt-8 text-amber/70 text-lg sm:text-xl max-w-xl leading-relaxed"
           style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
         >
-          I build elegant websites, set up AI tools that actually save you
-          time, and help real businesses compete online — no tech background
-          required.
+          Bose. Hatch. Raycon. 10 patents.
+          <br />
+          Now I apply the same standard to
+          <br />
+          whatever you&apos;re building —
+          <br />
+          regardless of size.
         </p>
 
-        {/* CTAs */}
-        <div className="mt-10 flex flex-wrap items-center gap-4">
-          <a
-            href="#contact"
-            className="px-8 py-4 bg-amber text-ivory font-semibold rounded-full hover:bg-amber-light transition-all duration-200 hover:scale-105 shadow-lg"
-            style={{ fontFamily: "var(--font-body)" }}
-          >
-            Tell me your idea
-          </a>
+        {/* CTA */}
+        <div className="mt-10">
           <a
             href="#work"
-            className="px-8 py-4 border border-ivory/30 text-ivory/90 font-medium rounded-full hover:border-ivory/60 hover:text-ivory transition-all duration-200"
-            style={{ fontFamily: "var(--font-body)" }}
+            className="font-mono text-amber hover:text-amber-light transition-colors duration-200 text-sm tracking-wide"
           >
-            See past work
+            See the work →
           </a>
         </div>
 
