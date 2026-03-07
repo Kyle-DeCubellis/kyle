@@ -15,24 +15,24 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const hero = document.getElementById("hero");
-      const threshold = hero
-        ? hero.offsetTop + hero.offsetHeight - window.innerHeight
-        : window.innerHeight;
-      setScrolled(window.scrollY > threshold);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    const sentinel = document.getElementById("terminal-end-sentinel");
+    if (!sentinel) return;
+    // Switch to light when the sentinel (at the terminal's fade-out point)
+    // has scrolled above the viewport top
+    const observer = new IntersectionObserver(
+      ([entry]) => setScrolled(!entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(sentinel);
+    return () => observer.disconnect();
   }, []);
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-ivory/95 backdrop-blur-md shadow-sm border-b border-fog"
-          : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? "shadow-sm border-b border-[#ddd8ce]" : "bg-transparent"
       }`}
+      style={scrolled ? { background: "#F5F0E8" } : {}}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Wordmark */}
@@ -87,7 +87,7 @@ export default function Nav() {
 
       {/* Mobile dropdown */}
       {menuOpen && (
-        <div className="md:hidden bg-ivory border-t border-fog px-6 py-6 flex flex-col gap-5">
+        <div className="md:hidden border-t border-[#ddd8ce] px-6 py-6 flex flex-col gap-5" style={{ background: "#F5F0E8" }}>
           {links.map((link) => (
             <a
               key={link.href}

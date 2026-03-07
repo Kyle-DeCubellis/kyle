@@ -172,35 +172,26 @@ function Terminal() {
   );
 }
 
-// ─── Dark hero (seamless continuation of terminal) ────────────────────────────
+// ─── Warm hero — the world above ground ──────────────────────────────────────
 
 function HeroContent() {
   return (
-    <div className="absolute inset-0" style={{ background: "#0a0804" }}>
-      {/* Grain texture */}
-      <div
-        className="absolute inset-0 opacity-[0.035]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`,
-          backgroundSize: "200px 200px",
-        }}
-      />
-
+    <div className="absolute inset-0" style={{ background: "#F5F0E8" }}>
       {/* Content */}
       <div className="relative z-10 h-full flex flex-col justify-center max-w-3xl mx-auto px-6 pt-20 pb-16">
 
         {/* Headline */}
         <h1
-          className="text-ivory text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-none tracking-tight"
-          style={{ fontFamily: "var(--font-display)" }}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-none tracking-tight"
+          style={{ fontFamily: "var(--font-display)", color: "#1a1a1a" }}
         >
           This started with a favor.
         </h1>
 
         {/* Body */}
         <div
-          className="mt-10 space-y-5 text-amber/70 text-lg sm:text-xl leading-loose max-w-2xl"
-          style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+          className="mt-10 space-y-5 text-lg sm:text-xl leading-loose max-w-2xl"
+          style={{ fontFamily: "var(--font-body)", fontWeight: 300, color: "#3a3a3a" }}
         >
           <p>
             A friend needed a website. A family member needed help getting a new
@@ -214,8 +205,8 @@ function HeroContent() {
           <p>So I kept saying yes. Haven&apos;t stopped.</p>
         </div>
 
-        {/* Terminal-style comment lines */}
-        <div className="mt-10 space-y-1 font-mono text-xs text-amber/50">
+        {/* Terminal fossils — a wink back at the underground */}
+        <div className="mt-10 space-y-1 font-mono text-xs" style={{ color: "#8a7a6a" }}>
           <div>$ # you could use fiverr.</div>
           <div>$ # that&apos;s not what I am.</div>
         </div>
@@ -224,24 +215,19 @@ function HeroContent() {
         <div className="mt-8">
           <a
             href="#work"
-            className="font-mono text-amber hover:text-amber-light transition-colors duration-200 text-sm tracking-wide"
+            className="font-mono text-sm tracking-wide transition-opacity duration-200 hover:opacity-70"
+            style={{ color: "#8B6914" }}
           >
             See the work →
           </a>
         </div>
 
         {/* Booking note */}
-        <p className="mt-6 font-mono text-amber/35 text-xs">
+        <p className="mt-6 font-mono text-xs" style={{ color: "#8a7a6a" }}>
           Currently booking Spring 2026 — a small number of spots at a time.
         </p>
 
       </div>
-
-      {/* Bottom fade into Services (#faf6f0 / ivory) */}
-      <div
-        className="absolute bottom-0 left-0 right-0 z-10"
-        style={{ height: "120px", background: "linear-gradient(to bottom, #0a0804, #faf6f0)" }}
-      />
     </div>
   );
 }
@@ -275,7 +261,15 @@ export default function Hero() {
       className="relative"
       style={{ height: "220vh" }}
     >
-      <div className="sticky top-0 h-screen overflow-hidden" style={{ background: "#0a0804" }}>
+      {/* Sentinel — marks terminal fade-out point for navbar IntersectionObserver */}
+      <div
+        id="terminal-end-sentinel"
+        className="absolute pointer-events-none"
+        style={{ top: "99vh" }}
+        aria-hidden="true"
+      />
+
+      <div className="sticky top-0 h-screen overflow-hidden" style={{ background: "#F5F0E8" }}>
 
         {/* ── Layer 1: Terminal (ground level) ── */}
         <motion.div
@@ -306,6 +300,12 @@ export default function Hero() {
             }}
           />
           <Terminal />
+
+          {/* Surface gradient — warm light bleeding up through the underground */}
+          <div
+            className="absolute bottom-0 left-0 right-0 pointer-events-none z-30"
+            style={{ height: "200px", background: "linear-gradient(to bottom, transparent, #F5F0E8)" }}
+          />
         </motion.div>
 
         {/* ── Layer 2: Warm hero (altitude) ── */}
