@@ -5,15 +5,6 @@ import { motion } from "framer-motion";
 const EASE = [0.22, 1, 0.36, 1] as const;
 const VIEWPORT = { once: true, margin: "-80px" } as const;
 
-const credentials = [
-  { label: "Bose Corporation", detail: "2M products · $2B+ revenue", color: "border-amber/40 text-amber" },
-  { label: "Northeastern University", detail: "Mechanical Engineering, Cum Laude", color: "border-sage/40 text-sage" },
-  { label: "3 Patents", detail: "Earphone Design & ANC", color: "border-terracotta/40 text-terracotta" },
-  { label: "Hatch", detail: "Android, iOS, AWS IoT devices", color: "border-walnut/30 text-walnut" },
-  { label: "VP of Product", detail: "5M products · 4.4+ stars · $3B revenue", color: "border-amber/40 text-amber" },
-  { label: "DTC at Scale", detail: "Hardware, software, and systems", color: "border-sage/40 text-sage" },
-];
-
 export default function About() {
   return (
     <section
@@ -124,69 +115,68 @@ export default function About() {
             </motion.div>
           </motion.div>
 
-          {/* Right column — slides in from right */}
+          {/* Right column — terminal block */}
           <motion.div
             initial={{ opacity: 0, x: 32 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={VIEWPORT}
             transition={{ duration: 0.65, ease: EASE, delay: 0.1 }}
           >
-            <p
-              className="text-walnut/40 text-xs font-medium tracking-widest uppercase mb-6"
-              style={{ fontFamily: "var(--font-body)" }}
-            >
-              Background & Credentials
-            </p>
+            <div style={{ background: "#0a0805" }}>
+              {/* Window chrome */}
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-amber/10">
+                <span className="w-3 h-3 rounded-full bg-red-400/50" />
+                <span className="w-3 h-3 rounded-full bg-yellow-400/50" />
+                <span className="w-3 h-3 rounded-full bg-green-400/50" />
+                <span className="ml-3 font-mono text-amber/30 text-xs tracking-widest">
+                  kyle@local ~ zsh
+                </span>
+              </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-              {credentials.map((cred, i) => (
-                <motion.div
-                  key={cred.label}
-                  className={`rounded-2xl border p-4 hover:bg-fog/50 transition-colors duration-200 ${cred.color}`}
-                  initial={{ opacity: 0, y: 16 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={VIEWPORT}
-                  transition={{ duration: 0.45, ease: EASE, delay: 0.15 + 0.07 * i }}
-                >
-                  <p
-                    className="font-semibold text-sm"
-                    style={{ fontFamily: "var(--font-body)" }}
-                  >
-                    {cred.label}
-                  </p>
-                  <p
-                    className="text-walnut/50 text-xs mt-0.5"
-                    style={{ fontFamily: "var(--font-body)" }}
-                  >
-                    {cred.detail}
-                  </p>
-                </motion.div>
-              ))}
+              {/* Terminal body */}
+              <div className="px-5 py-5 font-mono text-xs md:text-sm leading-relaxed space-y-0.5">
+
+                {/* Command */}
+                <div className="flex gap-1.5 text-amber">
+                  <span className="text-amber/40 select-none flex-shrink-0">$ </span>
+                  <span>ls ./credentials/</span>
+                </div>
+
+                <div className="h-3" />
+
+                {/* patents/ */}
+                <div className="text-amber">patents/[10-granted-4-pending]/</div>
+                <div className="pl-3 text-amber/60">· T-Shaped Joint in a Headphone Cord</div>
+                <div className="pl-3 text-amber/60">· Active Noise Reduction Earphone</div>
+                <div className="pl-3 text-amber/60">· Integration of Sensors into Earphones</div>
+                <div className="pl-3 text-amber/60">· [+7 additional granted]</div>
+                <div className="pl-3 text-amber/60">· [4 pending]</div>
+
+                <div className="h-3" />
+
+                {/* education/ */}
+                <div className="text-amber">education/</div>
+                <div className="pl-3 text-amber/60">· Northeastern University - Mechanical</div>
+                <div className="pl-3 text-amber/60" style={{ whiteSpace: "pre" }}>{"  Engineering, Cum Laude"}</div>
+                <div className="pl-3 text-amber/60">· MITx - Continuing Education</div>
+
+                <div className="h-3" />
+
+                {/* experience/ */}
+                <div className="text-amber">experience/</div>
+                {([
+                  "· Bose Corporation  8 years",
+                  "· Bose Frames       lead engineer",
+                  "· Hatch             IoT hardware, 1M+ devices",
+                  "· Raycon Global     VP Product (current)",
+                ] as const).map((line) => (
+                  <div key={line} className="pl-3 text-amber/60" style={{ whiteSpace: "pre" }}>
+                    {line}
+                  </div>
+                ))}
+
+              </div>
             </div>
-
-            {/* Patent callout */}
-            <motion.div
-              className="mt-6 rounded-2xl p-5 border border-amber/20 bg-amber/5"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={VIEWPORT}
-              transition={{ duration: 0.55, ease: EASE, delay: 0.55 }}
-            >
-              <p
-                className="text-amber text-xs font-semibold tracking-widest uppercase mb-2"
-                style={{ fontFamily: "var(--font-body)" }}
-              >
-                Patents
-              </p>
-              <ul
-                className="space-y-1 text-walnut/70 text-sm"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-              >
-                <li>· T-shaped Joint in a Headphone Cord</li>
-                <li>· Active Noise Reduction Earphone</li>
-                <li>· Integration of Sensors into Earphones</li>
-              </ul>
-            </motion.div>
           </motion.div>
 
         </div>
