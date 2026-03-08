@@ -140,6 +140,14 @@ export default function About() {
               {/* Terminal body */}
               <div className="px-5 py-5 font-mono text-xs md:text-sm leading-relaxed space-y-0.5">
 
+                {/* Comment header */}
+                <div className="flex gap-1.5 text-amber/50">
+                  <span className="select-none flex-shrink-0">$ </span>
+                  <span># background &amp; credentials</span>
+                </div>
+
+                <div className="h-3" />
+
                 {/* Command */}
                 <div className="flex gap-1.5 text-amber">
                   <span className="text-amber/40 select-none flex-shrink-0">$ </span>
@@ -160,19 +168,18 @@ export default function About() {
 
                 {/* education/ */}
                 <div className="text-amber">education/</div>
-                <div className="pl-3 text-amber/60">· Northeastern University - Mechanical</div>
-                <div className="pl-3 text-amber/60" style={{ whiteSpace: "pre" }}>{"  Engineering, Cum Laude"}</div>
-                <div className="pl-3 text-amber/60">· MITx - Continuing Education</div>
+                <div className="pl-3 text-amber/60">· Northeastern University</div>
+                <div className="pl-3 text-amber/60" style={{ whiteSpace: "pre" }}>{"    Mechanical Engineering, Cum Laude"}</div>
 
                 <div className="h-3" />
 
                 {/* experience/ */}
                 <div className="text-amber">experience/</div>
                 {([
-                  "· Bose Corporation  8 years",
-                  "· Bose Frames       lead engineer",
-                  "· Hatch             IoT hardware, 1M+ devices",
-                  "· Raycon Global     VP Product (current)",
+                  "· Bose Corporation    8 years",
+                  "· Bose Frames         lead engineer",
+                  "· Hatch               IoT, 1M+ devices",
+                  "· Raycon Global       VP Product (current)",
                 ] as const).map((line) => (
                   <div key={line} className="pl-3 text-amber/60" style={{ whiteSpace: "pre" }}>
                     {line}
