@@ -79,35 +79,37 @@ export default function About() {
               transition={{ duration: 0.6, ease: EASE, delay: 0.25 }}
             >
               <p>
-                Good products don&apos;t start with features. They start with
-                understanding who you&apos;re building for - how they think,
-                what frustrates them, what makes them tell a friend.
-              </p>
-              <p>
-                I&apos;ve spent my career at that intersection. Researching
-                users before a single line of code gets written. Mapping
-                the journey from first impression to loyal advocate.
-                Finding the moments where people either fall in love with
-                something - or quietly walk away.
-              </p>
-              <p>
-                The businesses that win aren&apos;t always the ones with the
-                best product. They&apos;re the ones whose customers feel
-                understood - and that feeling starts long before someone
-                buys anything. It starts with how you show up online.
-                That&apos;s what I build for you.
-              </p>
-              <p>
-                I learned this building products used by millions. Now
-                I use it for businesses that are just getting started.
-              </p>
-              <p>
-                I don&apos;t hand things off. I build with you - from the
-                first conversation through launch and beyond. When your
-                business grows, your site should too. That&apos;s the whole
-                point.
+                This started with a favor — a friend needed a website, a family
+                member needed help landing a job — and somewhere in applying
+                15 years of work at companies like Bose, I realized this was
+                the most fulfilling work I&apos;d ever done. So I kept saying
+                yes. And I haven&apos;t stopped.
               </p>
             </motion.div>
+
+            {/* Pull quote */}
+            <motion.blockquote
+              className="mt-8 border-l-2 border-amber pl-5"
+              initial={{ opacity: 0, x: -16 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={VIEWPORT}
+              transition={{ duration: 0.55, ease: EASE, delay: 0.35 }}
+            >
+              <p
+                className="text-charcoal text-lg italic leading-snug"
+                style={{ fontFamily: "var(--font-display)" }}
+              >
+                &ldquo;You could use Fiverr. That&apos;s not what I am.&rdquo;
+              </p>
+              <p
+                className="mt-3 text-walnut/60 text-sm leading-relaxed"
+                style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
+              >
+                I&apos;m not interested in checkboxes. I&apos;m interested in
+                understanding what you&apos;re actually trying to do — and
+                staying until it&apos;s done right.
+              </p>
+            </motion.blockquote>
 
             <motion.div
               className="mt-8 flex flex-wrap gap-3"
