@@ -6,12 +6,12 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 const VIEWPORT = { once: true, margin: "-80px" } as const;
 
 const credentials = [
-  { label: "Bose Corporation", detail: "8 Years", color: "border-amber/40 text-amber" },
-  { label: "Mechanical Engineering", detail: "Northeastern, Cum Laude", color: "border-sage/40 text-sage" },
-  { label: "3 Patents", detail: "Earphone Design & ANC", color: "border-terracotta/40 text-terracotta" },
-  { label: "ISO 13485", detail: "Medical Device QMS", color: "border-walnut/30 text-walnut" },
-  { label: "IoT Hardware", detail: "Hatch Connected Devices", color: "border-amber/40 text-amber" },
-  { label: "MITx on edX", detail: "Continuing Education", color: "border-sage/40 text-sage" },
+  { label: "Raycon Global", detail: "VP of Product Strategy & Operations, 2021–Present", color: "border-amber/40 text-amber" },
+  { label: "Hatch", detail: "Principal PM, Connected Devices, 2020–2021", color: "border-sage/40 text-sage" },
+  { label: "Bose Corporation", detail: "Senior Engineer, Wearables & Consumer Electronics, 2012–2020", color: "border-terracotta/40 text-terracotta" },
+  { label: "Northeastern University", detail: "B.S. Mechanical Engineering & Mathematics, 2012", color: "border-walnut/30 text-walnut" },
+  { label: "10 Patents", detail: "4 Issued Utility · 6 Granted Design", color: "border-amber/40 text-amber" },
+  { label: "AI/ML Product", detail: "LLMs, Automation, Decisioning", color: "border-sage/40 text-sage" },
 ];
 
 export default function About() {
@@ -43,15 +43,6 @@ export default function About() {
             viewport={VIEWPORT}
             transition={{ duration: 0.65, ease: EASE }}
           >
-            <div className="mb-8 flex justify-center lg:justify-start">
-              <img
-                id="headshot"
-                src="/headshot.jpg"
-                alt="Kyle DeCubellis"
-                className="w-32 h-32 rounded-full object-cover border-4 border-amber/20 shadow-lg"
-              />
-            </div>
-
             <span
               className="text-amber text-sm font-medium tracking-widest uppercase"
               style={{ fontFamily: "var(--font-body)" }}
@@ -202,9 +193,10 @@ export default function About() {
                 className="space-y-1 text-walnut/70 text-sm"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
               >
-                <li>· T-shaped Joint in a Headphone Cord</li>
-                <li>· Active Noise Reduction Earphone</li>
-                <li>· Integration of Sensors into Earphones</li>
+                <li>· Modular acoustic systems (2022)</li>
+                <li>· Active noise reduction earphone (2020)</li>
+                <li>· Sensor integration in earphones (2017)</li>
+                <li>· Headphone mechanical systems (2017)</li>
               </ul>
             </motion.div>
           </motion.div>
