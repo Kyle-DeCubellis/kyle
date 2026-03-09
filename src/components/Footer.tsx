@@ -55,7 +55,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="text-ivory/55 hover:text-amber text-sm transition-colors duration-200"
+                    className="text-ivory/55 hover:text-ivory text-sm transition-colors duration-200"
                     style={{ fontFamily: "var(--font-body)" }}
                   >
                     {link.label}
@@ -76,7 +76,7 @@ export default function Footer() {
             <div className="space-y-3">
               <a
                 href="mailto:kyledecubellis@gmail.com"
-                className="flex items-center gap-2.5 text-ivory/55 hover:text-amber text-sm transition-colors duration-200"
+                className="flex items-center gap-2.5 text-ivory/55 hover:text-ivory text-sm transition-colors duration-200"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 <Mail size={15} className="flex-shrink-0" />
@@ -86,7 +86,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/kyledecubellis"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2.5 text-ivory/55 hover:text-amber text-sm transition-colors duration-200"
+                className="flex items-center gap-2.5 text-ivory/55 hover:text-ivory text-sm transition-colors duration-200"
                 style={{ fontFamily: "var(--font-body)" }}
               >
                 <Linkedin size={15} className="flex-shrink-0" />

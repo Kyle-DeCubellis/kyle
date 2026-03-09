@@ -13,7 +13,7 @@ const projects = [
     description:
       "Full brand identity + staging site for a Greater Boston home stager. Gallery, testimonials, service tiers, and inquiry flow.",
     tags: ["Brand Identity", "Gallery", "Booking"],
-    gradient: "linear-gradient(135deg, #6b7c5c 0%, #2a1a0e 100%)",
+    gradient: "linear-gradient(135deg, #1A5C46 0%, #0D3B2E 100%)",
     image: "home-by-nkm-mockup.jpg",
     video: "/videos/nkm-loop.mp4",
     link: "https://haven-and-co.vercel.app/",
@@ -24,7 +24,7 @@ const projects = [
     description:
       "Local trades conversion site for a MetroWest mini split specialist. Built around trust signals, certifications, and before/after proof.",
     tags: ["Web Design", "Local SEO", "Conversion"],
-    gradient: "linear-gradient(135deg, #c75a3a 0%, #3d2b1f 100%)",
+    gradient: "linear-gradient(135deg, #0D3B2E 0%, #0A2B20 100%)",
     image: "rob-laurie-electrical-mockup.jpg",
     link: "https://rob-electric.vercel.app/",
   },
@@ -34,7 +34,7 @@ const projects = [
     description:
       "Zero to live business launch. Logo, site, copy, Calendly booking, and pricing - for a kids' mother's helper service in Southborough.",
     tags: ["Full Launch", "Booking", "Brand & Copy"],
-    gradient: "linear-gradient(135deg, #c17a2e 0%, #1a1208 100%)",
+    gradient: "linear-gradient(135deg, #1A5C46 0%, #0D3B2E 100%)",
     image: "southboro-sitters-mockup.jpg",
     link: "https://southboro-sitters.vercel.app/",
   },
@@ -44,7 +44,7 @@ const projects = [
     description:
       "Portfolio site for a photographer, cinematographer, and director - showcasing visual work with a clean, immersive layout.",
     tags: ["Portfolio", "Creative", "Visual Design"],
-    gradient: "linear-gradient(135deg, #3d2b1f 0%, #6b7c5c 100%)",
+    gradient: "linear-gradient(135deg, #0D3B2E 0%, #1A5C46 100%)",
     image: "dufazz-mockup.jpg",
     link: "https://jesse-indol.vercel.app/",
   },
@@ -54,7 +54,7 @@ const projects = [
     description:
       "Residential design firm site - consultations, mood boards, furniture sourcing, and project coordination for refined, personalized living spaces.",
     tags: ["Design Firm", "Services", "Residential"],
-    gradient: "linear-gradient(135deg, #1a1208 0%, #c17a2e 100%)",
+    gradient: "linear-gradient(135deg, #0A2B20 0%, #1A5C46 100%)",
     image: "andrea-thomas-interiors-mockup.jpg",
     link: "https://andrea-thomas-interiors.vercel.app/",
   },

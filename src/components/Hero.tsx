@@ -221,9 +221,9 @@ function HeroContent() {
         const x = 50 + Math.sin(t) * 8;
         const y = 50 + Math.cos(t * 0.7) * 6;
         gradientRef.current.style.background = `
-          radial-gradient(ellipse 80% 70% at ${x}% ${y}%, #c17a2e 0%, transparent 60%),
-          radial-gradient(ellipse 60% 80% at ${100 - x}% ${100 - y}%, #c75a3a 0%, transparent 55%),
-          radial-gradient(ellipse 100% 100% at 50% 50%, #1a1208 0%, #3d2b1f 100%)
+          radial-gradient(ellipse 80% 70% at ${x}% ${y}%, #1A5C46 0%, transparent 60%),
+          radial-gradient(ellipse 60% 80% at ${100 - x}% ${100 - y}%, #1A5C46 0%, transparent 55%),
+          radial-gradient(ellipse 100% 100% at 50% 50%, #0D3B2E 0%, #0D3B2E 100%)
         `;
       }
       frame = requestAnimationFrame(animate);
@@ -274,8 +274,10 @@ function HeroContent() {
         <div className="mt-10 flex flex-wrap items-center gap-4">
           <a
             href="#contact"
-            className="px-8 py-4 bg-amber text-ivory font-semibold rounded-full hover:bg-amber-light transition-all duration-200 hover:scale-105 shadow-lg"
-            style={{ fontFamily: "var(--font-body)" }}
+            className="px-8 py-4 font-semibold rounded-full transition-all duration-200 hover:scale-105 shadow-lg"
+            style={{ fontFamily: "var(--font-body)", background: "#0D3B2E", color: "#FDF8F0" }}
+            onMouseEnter={e => (e.currentTarget.style.background = "#1A5C46")}
+            onMouseLeave={e => (e.currentTarget.style.background = "#0D3B2E")}
           >
             Tell me your idea
           </a>

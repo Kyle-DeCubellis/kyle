@@ -8,7 +8,7 @@ const VIEWPORT = { once: true, margin: "-80px" } as const;
 const credentials = [
   { label: "Raycon Global", detail: "VP of Product Strategy & Operations, 2021–Present", color: "border-amber/40 text-amber" },
   { label: "Hatch", detail: "Principal PM, Connected Devices, 2020–2021", color: "border-sage/40 text-sage" },
-  { label: "Bose Corporation", detail: "Senior Engineer, Wearables & Consumer Electronics, 2012–2020", color: "border-terracotta/40 text-terracotta" },
+  { label: "Bose Corporation", detail: "Senior Engineer, Wearables & Consumer Electronics, 2012–2020", color: "border-charcoal/40 text-charcoal" },
   { label: "Northeastern University", detail: "B.S. Mechanical Engineering & Mathematics, 2012", color: "border-walnut/30 text-walnut" },
   { label: "10 Patents", detail: "4 Issued Utility · 6 Granted Design", color: "border-amber/40 text-amber" },
   { label: "AI/ML Product", detail: "LLMs, Automation, Decisioning", color: "border-sage/40 text-sage" },
@@ -129,8 +129,10 @@ export default function About() {
               </a>
               <a
                 href="mailto:kyledecubellis@gmail.com"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-charcoal text-ivory hover:bg-walnut transition-colors duration-200 text-sm font-medium"
-                style={{ fontFamily: "var(--font-body)" }}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-ivory transition-colors duration-200 text-sm font-medium"
+                style={{ background: "#0D3B2E", fontFamily: "var(--font-body)" }}
+                onMouseEnter={e => (e.currentTarget.style.background = "#1A5C46")}
+                onMouseLeave={e => (e.currentTarget.style.background = "#0D3B2E")}
               >
                 Email me directly
               </a>
@@ -179,7 +181,9 @@ export default function About() {
 
             {/* Patent callout */}
             <motion.div
-              className="mt-6 rounded-2xl p-5 border border-amber/20 bg-amber/5"
+              className="mt-6 rounded-2xl p-5"
+              style={{ border: "1px solid rgba(26,92,70,0.2)", background: "rgba(26,92,70,0.05)" }}
+
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={VIEWPORT}

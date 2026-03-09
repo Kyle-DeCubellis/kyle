@@ -23,7 +23,7 @@ const tracks = [
     description:
       "You're involved at every step - not just approving a final deliverable. Site, copy, deployment, domain, booking, payments. Everything live and yours. I don't hand off a file. I hand off a running business.",
     cta: "Perfect for: Anyone ready to show up online the right way for the first time.",
-    gradient: "linear-gradient(135deg, #c75a3a 0%, #a8402a 100%)",
+    gradient: "linear-gradient(135deg, #0D3B2E 0%, #0A2B20 100%)",
   },
   {
     icon: TrendingUp,
@@ -33,7 +33,7 @@ const tracks = [
     description:
       "After launch I stick around. Monthly maintenance, SEO, local search, content updates, AI tools as your business evolves. You focus on your work. I keep the digital side running and improving.",
     cta: "Perfect for: Businesses that launched but aren't getting found, or just need someone to own the online side.",
-    gradient: "linear-gradient(135deg, #6b7c5c 0%, #4a5940 100%)",
+    gradient: "linear-gradient(135deg, #1A5C46 0%, #0D3B2E 100%)",
   },
 ];
 
@@ -167,8 +167,10 @@ export default function Services() {
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-7 py-3.5 bg-charcoal text-ivory font-medium rounded-full hover:bg-walnut transition-colors duration-200"
-            style={{ fontFamily: "var(--font-body)" }}
+            className="inline-flex items-center gap-2 px-7 py-3.5 text-ivory font-medium rounded-full transition-colors duration-200"
+            style={{ background: "#0D3B2E", fontFamily: "var(--font-body)" }}
+            onMouseEnter={e => (e.currentTarget.style.background = "#1A5C46")}
+            onMouseLeave={e => (e.currentTarget.style.background = "#0D3B2E")}
           >
             Let&apos;s figure it out →
           </a>

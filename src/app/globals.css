@@ -2,17 +2,17 @@
 
 @theme inline {
   /* Brand Colors */
-  --color-ivory: #faf6f0;
-  --color-cream: #f5efe4;
-  --color-amber: #c17a2e;
-  --color-amber-light: #e8a84c;
-  --color-amber-pale: #f5ddb5;
-  --color-terracotta: #c75a3a;
-  --color-terracotta-light: #e07a5f;
-  --color-walnut: #3d2b1f;
-  --color-charcoal: #1a1208;
-  --color-sage: #6b7c5c;
-  --color-fog: #ece8e1;
+  --color-ivory: #FDF8F0;
+  --color-cream: #FDF8F0;
+  --color-amber: #1A5C46;
+  --color-amber-light: #FDF8F0;
+  --color-amber-pale: #DDE8E4;
+  --color-terracotta: #0D3B2E;
+  --color-terracotta-light: #1A5C46;
+  --color-walnut: #1a1a1a;
+  --color-charcoal: #0D3B2E;
+  --color-sage: #1A5C46;
+  --color-fog: #DDE8E4;
 }
 
 * {
@@ -24,8 +24,8 @@ html {
 }
 
 body {
-  background-color: #faf6f0;
-  color: #1a1208;
+  background-color: #FDF8F0;
+  color: #1a1a1a;
   font-family: "Inter", system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -57,8 +57,8 @@ section {
 
 /* Selection color */
 ::selection {
-  background-color: #e8a84c;
-  color: #1a1208;
+  background-color: #1A5C46;
+  color: #FDF8F0;
 }
 
 /* Custom scrollbar */
@@ -67,10 +67,10 @@ section {
 }
 
 ::-webkit-scrollbar-track {
-  background: #faf6f0;
+  background: #FDF8F0;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c17a2e;
+  background: #0D3B2E;
   border-radius: 3px;
 }

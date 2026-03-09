@@ -54,17 +54,17 @@ export default function WhoIServe() {
       id="who"
       className="relative py-24 md:py-32 overflow-hidden"
       style={{
-        background: "linear-gradient(160deg, #3d2b1f 0%, #1a1208 60%, #2a1a0e 100%)",
+        background: "linear-gradient(160deg, #0D3B2E 0%, #0D3B2E 60%, #0A2B20 100%)",
       }}
     >
       {/* Decorative blobs */}
       <div
         className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl opacity-10 pointer-events-none"
-        style={{ background: "#c17a2e", transform: "translate(30%, -30%)" }}
+        style={{ background: "#1A5C46", transform: "translate(30%, -30%)" }}
       />
       <div
         className="absolute bottom-0 left-0 w-80 h-80 rounded-full blur-3xl opacity-10 pointer-events-none"
-        style={{ background: "#c75a3a", transform: "translate(-30%, 30%)" }}
+        style={{ background: "#1A5C46", transform: "translate(-30%, 30%)" }}
       />
 
       <div className="relative z-10 max-w-6xl mx-auto px-6">
