@@ -24,9 +24,10 @@ export default function Nav() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-ivory/95 backdrop-blur-md shadow-sm border-b border-fog"
+          ? "backdrop-blur-md shadow-sm border-b border-fog"
           : "bg-transparent"
       }`}
+      style={scrolled ? { background: "#FDF8F0F2" } : undefined}
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Wordmark */}
@@ -47,15 +48,17 @@ export default function Nav() {
               {link.label === "Let's Talk" ? (
                 <a
                   href={link.href}
-                  className="px-5 py-2.5 rounded-full bg-amber text-ivory text-sm font-medium hover:bg-amber-light transition-colors duration-200"
-                  style={{ fontFamily: "var(--font-body)" }}
+                  className="px-5 py-2.5 rounded-full text-sm font-medium transition-colors duration-200"
+                  style={{ background: "#0D3B2E", color: "#FDF8F0", fontFamily: "var(--font-body)" }}
+                  onMouseEnter={e => (e.currentTarget.style.background = "#1A5C46")}
+                  onMouseLeave={e => (e.currentTarget.style.background = "#0D3B2E")}
                 >
                   {link.label}
                 </a>
               ) : (
                 <a
                   href={link.href}
-                  className={`text-sm font-medium transition-colors duration-200 hover:text-amber ${
+                  className={`text-sm font-medium transition-colors duration-200 hover:text-charcoal ${
                     scrolled ? "text-walnut" : "text-ivory/90"
                   }`}
                   style={{ fontFamily: "var(--font-body)" }}
@@ -81,13 +84,13 @@ export default function Nav() {
 
       {/* Mobile dropdown */}
       {menuOpen && (
-        <div className="md:hidden bg-ivory border-t border-fog px-6 py-6 flex flex-col gap-5">
+        <div className="md:hidden border-t border-fog px-6 py-6 flex flex-col gap-5" style={{ background: "#FDF8F0" }}>
           {links.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="text-walnut font-medium text-base hover:text-amber transition-colors"
+              className="text-walnut font-medium text-base hover:text-charcoal transition-colors"
               style={{ fontFamily: "var(--font-body)" }}
             >
               {link.label}

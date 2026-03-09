@@ -19,37 +19,37 @@ const categories = [
     label: "Frontend",
     summary: "Liquid theme editor + Replo for custom storefronts and landing pages built to convert - no agency dependency.",
     tools: ["Liquid Theme Editor", "Replo"],
-    accent: "#c75a3a",
+    accent: "#0D3B2E",
   },
   {
     label: "Retention & CRM",
     summary: "Klaviyo flows from first-touch to post-purchase, built around segmentation, A/B testing, and revenue attribution.",
     tools: ["Klaviyo"],
-    accent: "#c17a2e",
+    accent: "#1A5C46",
   },
   {
     label: "Checkout & Revenue",
     summary: "CartHook and AfterSell layered together to capture revenue at checkout and extend it immediately after.",
     tools: ["CartHook", "AfterSell"],
-    accent: "#6b7c5c",
+    accent: "#1A5C46",
   },
   {
     label: "Automation & Ops",
     summary: "Shopify Flow for conditional logic and order routing. AfterShip for post-purchase experience and return reduction.",
     tools: ["Shopify Flow", "AfterShip"],
-    accent: "#3d2b1f",
+    accent: "#0D3B2E",
   },
   {
     label: "Social Proof",
     summary: "Yotpo for review collection, display, and syndication - tied directly to PDPs and ad creative.",
     tools: ["Yotpo"],
-    accent: "#8b6914",
+    accent: "#1A5C46",
   },
   {
     label: "Voice of Customer",
     summary: "Zigpoll and Medallia for attribution surveys, exit intent, and post-purchase feedback loops that inform the roadmap.",
     tools: ["Zigpoll", "Medallia"],
-    accent: "#4a5940",
+    accent: "#1A5C46",
   },
 ];
 

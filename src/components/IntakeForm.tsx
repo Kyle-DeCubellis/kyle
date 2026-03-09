@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 const VIEWPORT = { once: true, margin: "-80px" } as const;
-const BG = "linear-gradient(160deg, #1a1208 0%, #3d2b1f 50%, #1a1208 100%)";
+const BG = "linear-gradient(160deg, #0D3B2E 0%, #1A5C46 50%, #0D3B2E 100%)";
 
 declare global {
   interface Window {
@@ -31,8 +31,8 @@ export default function IntakeForm() {
         {/* Header */}
         <div className="mb-12 text-center">
           <motion.span
-            className="text-amber text-sm font-medium tracking-widest uppercase"
-            style={{ fontFamily: "var(--font-body)" }}
+            className="text-sm font-medium tracking-widest uppercase"
+            style={{ fontFamily: "var(--font-body)", color: "#FDF8F0" }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={VIEWPORT}
