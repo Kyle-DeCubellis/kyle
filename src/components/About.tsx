@@ -79,19 +79,11 @@ export default function About() {
               transition={{ duration: 0.6, ease: EASE, delay: 0.25 }}
             >
               <p>
-                This started with a favor. A friend needed a website. A family
-                member needed help positioning themselves for a new job. I said
-                yes — and somewhere in the process of applying what I&apos;d
-                spent 15 years building at companies like Bose, I realized this
-                was the most fulfilling work I&apos;d ever done.
-              </p>
-              <p>
-                Not because it was easy. Because it mattered to the person
-                sitting across from me in a way that a product roadmap or a
-                patent filing never quite does.
-              </p>
-              <p>
-                So I kept saying yes. And I haven&apos;t stopped.
+                This started with a favor — a friend needed a website, a family
+                member needed help landing a job — and somewhere in applying
+                15 years of work at companies like Bose, I realized this was
+                the most fulfilling work I&apos;d ever done. So I kept saying
+                yes. And I haven&apos;t stopped.
               </p>
             </motion.div>
 
@@ -113,19 +105,9 @@ export default function About() {
                 className="mt-3 text-walnut/60 text-sm leading-relaxed"
                 style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
               >
-                Fiverr will get you a deliverable. A file. A checkbox.
-                I&apos;m not interested in checkboxes. I&apos;m interested
-                in understanding what you&apos;re actually trying to do —
-                and staying until it&apos;s done right.
-              </p>
-              <p
-                className="mt-3 text-walnut/60 text-sm leading-relaxed"
-                style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
-              >
-                No job is too small. No ambition is too large. Resume
-                optimization and e-commerce product launches live in the
-                same practice because they require the same thing: someone
-                who genuinely wants you to win.
+                I&apos;m not interested in checkboxes. I&apos;m interested in
+                understanding what you&apos;re actually trying to do — and
+                staying until it&apos;s done right.
               </p>
             </motion.blockquote>
 
