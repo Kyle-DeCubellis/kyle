@@ -43,15 +43,6 @@ export default function About() {
             viewport={VIEWPORT}
             transition={{ duration: 0.65, ease: EASE }}
           >
-            <div className="mb-8 flex justify-center lg:justify-start">
-              <img
-                id="headshot"
-                src="/headshot.jpg"
-                alt="Kyle DeCubellis"
-                className="w-32 h-32 rounded-full object-cover border-4 border-amber/20 shadow-lg"
-              />
-            </div>
-
             <span
               className="text-amber text-sm font-medium tracking-widest uppercase"
               style={{ fontFamily: "var(--font-body)" }}
