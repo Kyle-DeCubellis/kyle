@@ -16,7 +16,7 @@ const projects = [
     gradient: "linear-gradient(135deg, #6b7c5c 0%, #2a1a0e 100%)",
     image: "home-by-nkm-mockup.jpg",
     video: "/videos/nkm-loop.mp4",
-    link: "https://home-by-nkm.vercel.app/",
+    link: "https://haven-and-co.vercel.app/",
   },
   {
     title: "Rob Laurie Electrical",
@@ -26,7 +26,7 @@ const projects = [
     tags: ["Web Design", "Local SEO", "Conversion"],
     gradient: "linear-gradient(135deg, #c75a3a 0%, #3d2b1f 100%)",
     image: "rob-laurie-electrical-mockup.jpg",
-    link: "https://rob-design-variant-2.vercel.app/",
+    link: "https://rob-electric.vercel.app/",
   },
   {
     title: "Southboro Sitters",
@@ -39,7 +39,7 @@ const projects = [
     link: "https://southboro-sitters.vercel.app/",
   },
   {
-    title: "Dufazz",
+    title: "Jesse Dufault Photography",
     category: "Photography / Creative",
     description:
       "Portfolio site for a photographer, cinematographer, and director - showcasing visual work with a clean, immersive layout.",
