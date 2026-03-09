@@ -314,11 +314,12 @@ export default function Hero() {
   });
 
   // Terminal recedes: fades out, scales down slightly, sinks away
-  const terminalOpacity = useTransform(scrollYProgress, [0, 0.45], [1, 0]);
-  const terminalScale   = useTransform(scrollYProgress, [0, 0.45], [1, 0.94]);
-  const terminalY       = useTransform(scrollYProgress, [0, 0.45], [0, 40]);
-  const terminalBlurVal = useTransform(scrollYProgress, [0, 0.45], [0, 14]);
-  const terminalFilter  = useMotionTemplate`blur(${terminalBlurVal}px)`;
+  const terminalOpacity     = useTransform(scrollYProgress, [0, 0.45], [1, 0]);
+  const terminalScale       = useTransform(scrollYProgress, [0, 0.45], [1, 0.94]);
+  const terminalY           = useTransform(scrollYProgress, [0, 0.45], [0, 40]);
+  const terminalBlurVal     = useTransform(scrollYProgress, [0, 0.45], [0, 14]);
+  const terminalFilter      = useMotionTemplate`blur(${terminalBlurVal}px)`;
+  const terminalPointerEvts = useTransform(terminalOpacity, (v) => v > 0.05 ? "auto" : "none");
 
   // Hero descends to meet you: rises up from above, fades in
   const heroOpacity = useTransform(scrollYProgress, [0.1, 0.55], [0, 1]);
@@ -343,6 +344,7 @@ export default function Hero() {
             y: terminalY,
             filter: terminalFilter,
             background: "#0a0805",
+            pointerEvents: terminalPointerEvts,
           }}
         >
           {/* Background video/image - sits behind terminal text */}

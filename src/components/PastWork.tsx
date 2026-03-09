@@ -46,7 +46,7 @@ const projects = [
     tags: ["Portfolio", "Creative", "Visual Design"],
     gradient: "linear-gradient(135deg, #3d2b1f 0%, #6b7c5c 100%)",
     image: "dufazz-mockup.jpg",
-    link: "https://dufazz.vercel.app/",
+    link: "https://jesse-indol.vercel.app/",
   },
   {
     title: "Andrea Thomas Interiors",
