@@ -13,6 +13,10 @@ export const metadata: Metadata = {
     "Kyle DeCubellis",
     "Boston",
   ],
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "Kyle DeCubellis - Websites, AI Tools & Strategy for Real Businesses",
     description:
