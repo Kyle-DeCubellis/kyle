@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: "Kyle DeCubellis - Websites, AI Tools & Strategy for Real Businesses",
     description:
       "I build elegant websites, set up AI tools that save you time, and help real businesses compete online. Greater Boston and beyond.",
-    images: [{ url: "/og-image.jpg" }],
+    images: [{ url: "/og-image.png" }],
     url: "https://kyledec.com",
   },
   alternates: {
