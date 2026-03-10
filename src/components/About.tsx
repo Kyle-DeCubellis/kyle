@@ -79,8 +79,8 @@ export default function About() {
               transition={{ duration: 0.6, ease: EASE, delay: 0.25 }}
             >
               <p>
-                This started with a favor — a friend needed a website, a family
-                member needed help landing a job — and somewhere in applying
+                This started with a favor • a friend needed a website, a family
+                member needed help landing a job • and somewhere in applying
                 15 years of work at companies like Bose, I realized this was
                 the most fulfilling work I&apos;d ever done. So I kept saying
                 yes. And I haven&apos;t stopped.
@@ -106,7 +106,7 @@ export default function About() {
                 style={{ fontFamily: "var(--font-body)", fontWeight: 300 }}
               >
                 I&apos;m not interested in checkboxes. I&apos;m interested in
-                understanding what you&apos;re actually trying to do — and
+                understanding what you&apos;re actually trying to do • and
                 staying until it&apos;s done right.
               </p>
             </motion.blockquote>
