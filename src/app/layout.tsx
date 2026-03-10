@@ -22,10 +22,10 @@ export const metadata: Metadata = {
     description:
       "I build elegant websites, set up AI tools that save you time, and help real businesses compete online. Greater Boston and beyond.",
     images: [{ url: "/og-image.jpg" }],
-    url: "https://kyle-psi.vercel.app",
+    url: "https://kyledec.com",
   },
   alternates: {
-    canonical: "https://kyle-psi.vercel.app",
+    canonical: "https://kyledec.com",
   },
 };
 
